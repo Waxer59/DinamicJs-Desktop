@@ -12,8 +12,9 @@ const createWindow = () => {
     width: 800,
     height: 600,
     titleBarStyle: 'hidden',
-	transparent: true,
-	frame: false,
+	  transparent: true,
+	  frame: false,
+    icon: path.join(__dirname, '/images', '/favicon.ico'),
     webPreferences: {
       sandbox: false,
       preload: path.join(__dirname, 'preload.js')
@@ -24,7 +25,8 @@ const createWindow = () => {
 
   mainWindow.loadURL(`file://${__dirname}/dist/index.html`);
 
-  mainWindow.webContents.openDevTools();
+//  Open dev tools
+//  mainWindow.webContents.openDevTools();
 
   attachTitlebarToWindow(mainWindow);
 };
