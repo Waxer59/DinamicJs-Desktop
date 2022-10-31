@@ -14,11 +14,11 @@ const createWindow = () => {
     titleBarStyle: 'hidden',
     transparent: true,
     frame: false,
-    // icon: path.join(
-    //   __dirname,
-    //   '/images',
-    //   '/android-chrome-512x512.ico'
-    // ),
+    icon: path.join(
+      __dirname,
+      '/images',
+      '/android-chrome-512x512.ico'
+    ),
     webPreferences: {
       sandbox: false,
       preload: path.join(__dirname, 'preload.js'),
@@ -28,7 +28,7 @@ const createWindow = () => {
   const menu = Menu.buildFromTemplate([]);
   Menu.setApplicationMenu(menu);
 
-  mainWindow.loadFile(path.join( __dirname, 'build' ,'index.html'));
+  mainWindow.loadFile(path.join( __dirname, '..' ,'build' ,'index.html'));
   //  Open dev tools
   //  mainWindow.webContents.openDevTools();
 
