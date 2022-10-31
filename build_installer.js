@@ -9,12 +9,10 @@ const path = require('path');
 // appDirectory: "C:\\Users\sdkca\Desktop\OurCodeWorld-win32-x64",
 const APP_DIR = path.resolve(__dirname, './out/DinamicJs-win32-x64');
 // outputDirectory: "C:\\Users\sdkca\Desktop\windows_installer",
-const OUT_DIR = path.resolve(__dirname, './out/windows');
 
 // 3. Instantiate the MSICreator
 const msiCreator = new MSICreator({
   appDirectory: APP_DIR,
-  outputDirectory: OUT_DIR,
 
   // Configure metadata
   description: 'Your javascript playground',
@@ -22,7 +20,7 @@ const msiCreator = new MSICreator({
   name: 'DinamicJs',
   manufacturer: 'Waxer59',
   version: '1.0.0',
-  icon: path.join(__dirname, '/images', '/android-chrome-512x512.ico'),
+  icon: path.join(__dirname, '/src' ,'/images', '/android-chrome-512x512.ico'),
 
   // Configure installer User Interface
   ui: {

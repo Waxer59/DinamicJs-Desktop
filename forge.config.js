@@ -7,7 +7,7 @@ module.exports = {
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        icon: path.join(__dirname, '/images', '/android-chrome-512x512.ico')
+        icon: path.join(__dirname, '/src' ,'/images', '/android-chrome-512x512.ico')
       }
     },
     {
@@ -17,19 +17,19 @@ module.exports = {
     {
       name: '@electron-forge/maker-deb',
       config: {
-        icon: path.join(__dirname, '/images', '/android-chrome-512x512.ico')
+        icon: path.join(__dirname, '/src' ,'/images', '/android-chrome-512x512.ico')
       }
     },
     {
       name: '@electron-forge/maker-rpm',
       config: {
-        icon: path.join(__dirname, '/images', '/android-chrome-512x512.ico')
+        icon: path.join(__dirname, '/src' ,'/images', '/android-chrome-512x512.ico')
       }
     },
     {
       name: '@electron-forge/maker-wix',
       config: {
-        icon: path.join(__dirname, '/images', '/android-chrome-512x512.ico')
+        icon: path.join(__dirname, '/src' ,'/images', '/android-chrome-512x512.ico')
       }
     }
   ]
