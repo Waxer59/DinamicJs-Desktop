@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   packagerConfig: {},
   rebuildConfig: {},
@@ -5,24 +7,29 @@ module.exports = {
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        name: "DinamicJs",
-        icon: './images/favicon.ico'
+        icon: path.join(__dirname, '/images', '/android-chrome-512x512.ico')
       }
     },
     {
       name: '@electron-forge/maker-zip',
-      platforms: ['darwin','linux']
+      platforms: ['darwin', 'linux']
     },
     {
       name: '@electron-forge/maker-deb',
       config: {
-        icon: './images/favicon.ico'
+        icon: path.join(__dirname, '/images', '/android-chrome-512x512.ico')
       }
     },
     {
       name: '@electron-forge/maker-rpm',
       config: {
-        icon: './images/favicon.ico'
+        icon: path.join(__dirname, '/images', '/android-chrome-512x512.ico')
+      }
+    },
+    {
+      name: '@electron-forge/maker-wix',
+      config: {
+        icon: path.join(__dirname, '/images', '/android-chrome-512x512.ico')
       }
     }
   ]
