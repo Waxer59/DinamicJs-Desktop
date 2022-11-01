@@ -2,7 +2,7 @@
   "name": "dinamicjs",
   "private": true,
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "main.js",
   "description": "Your javascript playground",
   "license": "MIT",
   "author": "Waxer59",
@@ -42,14 +42,14 @@
       "target": [
         "nsis"
       ],
-      "icon": "src/images/android-chrome-512x512.ico"
+      "icon": "public/android-chrome-512x512.ico"
     },
     "nsis": {
-      "installerIcon": "src/images/android-chrome-512x512.ico",
-      "uninstallerIcon": "src/images/android-chrome-512x512.ico",
+      "installerIcon": "public/android-chrome-512x512.ico",
+      "uninstallerIcon": "public/android-chrome-512x512.ico",
       "uninstallDisplayName": "Dinamicjs",
       "oneClick": true,
-      "installerHeaderIcon": "src/images/android-chrome-512x512.ico",
+      "installerHeaderIcon": "public/android-chrome-512x512.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "shortcutName": "Dinamicjs"

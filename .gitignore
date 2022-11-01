@@ -28,3 +28,5 @@ install
 *.sw?
 
 out/
+# Local Netlify folder
+.netlify

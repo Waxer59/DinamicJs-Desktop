@@ -20,7 +20,7 @@ const msiCreator = new MSICreator({
   name: 'DinamicJs',
   manufacturer: 'Waxer59',
   version: '1.0.0',
-  icon: path.join(__dirname, '/src' ,'/images', '/android-chrome-512x512.ico'),
+  icon: path.join(__dirname, 'public', 'android-chrome-512x512.ico'),
   shortName: 'DinamicJs',
   shortcutName: 'DinamicJs',
 
