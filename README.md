@@ -17,6 +17,7 @@ It's the desktop version of [DinamicJs](https://github.com/Waxer59/DinamicJs) pr
 * Sass
 * SplitJs
 * Electron
+* Custom electron titlebar
 
 ## Install
 
