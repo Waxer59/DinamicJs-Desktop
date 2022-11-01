@@ -19,4 +19,4 @@ It's the desktop version of [DinamicJs](https://github.com/Waxer59/DinamicJs) pr
 
 ## Install
 
-* [windows](out/make/wix/x64/dinamicjs.msi)
+* You can download the latest version of the app [here]()
