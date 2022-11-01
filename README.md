@@ -16,6 +16,7 @@ It's the desktop version of [DinamicJs](https://github.com/Waxer59/DinamicJs) pr
 * [loop protect](https://www.npmjs.com/package/loop-protect)
 * Sass
 * SplitJs
+* Electron
 
 ## Install
 
