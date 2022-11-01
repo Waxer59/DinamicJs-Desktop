@@ -30,7 +30,6 @@
     "@babel/standalone": "^7.19.6",
     "@sweetalert2/theme-dark": "^5.0.12",
     "custom-electron-titlebar": "^4.1.1",
-    "electron-squirrel-startup": "^1.0.0",
     "loop-protect": "^2.1.6",
     "monaco-editor": "^0.34.0",
     "split.js": "^1.6.5",
