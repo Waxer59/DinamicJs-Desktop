@@ -43,14 +43,14 @@
       "target": [
         "nsis"
       ],
-      "icon": "public/android-chrome-512x512.ico"
+      "icon": "src/images/android-chrome-512x512.ico"
     },
     "nsis": {
-      "installerIcon": "public/android-chrome-512x512.ico",
-      "uninstallerIcon": "public/android-chrome-512x512.ico",
+      "installerIcon": "src/images/android-chrome-512x512.ico",
+      "uninstallerIcon": "src/images/android-chrome-512x512.ico",
       "uninstallDisplayName": "Dinamicjs",
       "oneClick": true,
-      "installerHeaderIcon": "public/android-chrome-512x512.ico",
+      "installerHeaderIcon": "src/images/android-chrome-512x512.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "shortcutName": "Dinamicjs"

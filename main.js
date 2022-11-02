@@ -14,7 +14,7 @@ const createWindow = () => {
     titleBarStyle: 'hidden',
     transparent: true,
     frame: false,
-    icon: path.join(__dirname, 'public', 'android-chrome-512x512.ico'),
+    icon: path.join(__dirname, 'src' ,'images', 'android-chrome-512x512.ico'),
     webPreferences: {
       sandbox: false,
       preload: path.join(__dirname, 'preload.js'),

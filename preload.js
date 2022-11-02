@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
     backgroundColor: Color.fromHex('#262626'),
     //itemBackgroundColor: Color.fromHex("#ffffff"),
     svgColor: Color.WHITE,
-    icon: path.join(__dirname, 'public', 'android-chrome-512x512.ico'),
+    icon: path.join(__dirname, 'src', 'images' ,'android-chrome-512x512.ico'),
     menuTransparent: 80
   });
 
