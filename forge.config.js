@@ -3,6 +3,13 @@ const path = require('path');
 module.exports = {
   packagerConfig: {},
   rebuildConfig: {},
+  config: {
+    forge: {
+      packagerConfig: {
+        icon: path.join(__dirname, 'public', 'android-chrome-512x512.ico')
+      }
+    }
+  },
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
@@ -33,11 +40,4 @@ module.exports = {
       }
     }
   ],
-  config: {
-    forge: {
-      packagerConfig: {
-        icon: path.join(__dirname, 'public', 'android-chrome-512x512.ico')
-      }
-    }
-  }
 };
