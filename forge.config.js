@@ -32,5 +32,12 @@ module.exports = {
         icon: path.join(__dirname, 'public', 'android-chrome-512x512.ico')
       }
     }
-  ]
+  ],
+  config: {
+    forge: {
+      packagerConfig: {
+        icon: path.join(__dirname, 'public', 'android-chrome-512x512.ico')
+      }
+    }
+  }
 };

@@ -5,5 +5,8 @@ export default defineConfig({
   base: '', // relative path
   build: {
     outDir: 'build'
+  },
+  optimizeDeps: {
+    include: ['src/scss']
   }
 });

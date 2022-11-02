@@ -6,6 +6,7 @@
   "description": "Your javascript playground",
   "license": "MIT",
   "author": "Waxer59",
+  "icon": "public/android-chrome-512x512.ico",
   "scripts": {
     "start": "yarn build && yarn electron:dev",
     "build": "vite build",
