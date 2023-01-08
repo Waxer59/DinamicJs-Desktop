@@ -1,55 +1,27 @@
 const path = require('path');
 
 module.exports = {
-  packagerConfig: {},
+  packagerConfig: {
+    icon: '/dist/images/favicon'
+  },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        icon: path.join(
-          __dirname,
-          'src',
-          'images',
-          'android-chrome-512x512.ico'
-        )
+        icon: '/dist/images/favicon'
       }
-    },
-    {
-      name: '@electron-forge/maker-zip',
-      platforms: ['darwin', 'linux']
     },
     {
       name: '@electron-forge/maker-deb',
       config: {
-        icon: path.join(
-          __dirname,
-          'src',
-          'images',
-          'android-chrome-512x512.png'
-        )
+        icon: '/dist/images/android-chrome-512x512'
       }
     },
     {
       name: '@electron-forge/maker-rpm',
       config: {
-        icon: path.join(
-          __dirname,
-          'src',
-          'images',
-          'android-chrome-512x512.png'
-        )
-      }
-    },
-    {
-      name: '@electron-forge/maker-wix',
-      config: {
-        icon: path.join(
-          __dirname,
-          'src',
-          'images',
-          'android-chrome-512x512.ico'
-        )
+        icon: '/dist/images/android-chrome-512x512'
       }
     }
   ]
