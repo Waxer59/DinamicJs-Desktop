@@ -12,9 +12,7 @@ dist
 dist-ssr
 *.local
 
-.env
-build
-install
+out/
 
 # Editor directories and files
 .vscode/*
@@ -26,7 +24,3 @@ install
 *.njsproj
 *.sln
 *.sw?
-
-out/
-# Local Netlify folder
-.netlify
