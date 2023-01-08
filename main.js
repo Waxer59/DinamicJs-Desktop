@@ -1,34 +1,16 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
-const {
-  setupTitlebar,
-  attachTitlebarToWindow
-} = require('custom-electron-titlebar/main');
-
-setupTitlebar();
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
-    titleBarStyle: 'hidden',
-    transparent: true,
-    frame: false,
-    icon: path.join(__dirname, 'src' ,'images', 'android-chrome-512x512.ico'),
-    webPreferences: {
-      sandbox: false,
-      preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true
-    }
+    icon: path.join(__dirname, 'dist', 'images', 'favicon.ico')
   });
   const menu = Menu.buildFromTemplate([]);
   Menu.setApplicationMenu(menu);
 
-  mainWindow.loadFile(path.join(__dirname, 'build', 'index.html'));
+  mainWindow.loadFile(path.join(__dirname, 'dist', 'index.html'));
   //  Open dev tools
   //  mainWindow.webContents.openDevTools();
-
-  attachTitlebarToWindow(mainWindow);
 };
 
 app.whenReady().then(() => {

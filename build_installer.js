@@ -16,14 +16,13 @@ const msiCreator = new MSICreator({
 
   // Configure metadata
   description: 'Your javascript playground',
-  exe: 'DinamicJs',
+  exe: 'DinamicJs.exe',
   name: 'DinamicJs',
   manufacturer: 'Waxer59',
-  version: '1.0.0',
-  icon: path.join(__dirname, 'src', 'images', 'android-chrome-512x512.ico'),
+  version: '2.7.6',
+  icon: path.join(__dirname, 'dist', 'images', 'favicon.ico'),
   shortName: 'DinamicJs',
   shortcutName: 'DinamicJs',
-
   // Configure installer User Interface
   ui: {
     chooseDirectory: true
