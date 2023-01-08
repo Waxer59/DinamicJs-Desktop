@@ -1,6 +1,8 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 
+if (require('electron-squirrel-startup')) app.quit();
+
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
     icon: path.join(__dirname, 'dist', 'images', 'favicon.ico')

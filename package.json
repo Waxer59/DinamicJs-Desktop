@@ -6,13 +6,13 @@
   "description": "Your javascript playground now in desktop",
   "license": "MIT",
   "author": "Waxer59",
-  "icon": "dist/images/favicon",
+  "icon": "dist/images/favicon.ico",
   "scripts": {
     "start": "yarn build && yarn electron:dev",
     "build": "vite build",
     "preview": "vite preview",
     "electron:dev": "electron-forge start",
-    "electron:build": "electron-forge make",
+    "electron:build": "yarn build && electron-forge make",
     "electron:package": "electron-forge package"
   },
   "dependencies": {
@@ -21,6 +21,7 @@
     "@sweetalert2/theme-dark": "^5.0.15",
     "canvas-confetti": "^1.6.0",
     "downloadjs": "^1.4.7",
+    "electron-squirrel-startup": "^1.0.0",
     "js-base64": "^3.7.4",
     "loop-protect": "^2.1.6",
     "monaco-editor": "^0.34.1",
@@ -44,5 +45,35 @@
     "electron-package": "^0.1.0",
     "electron-wix-msi": "^5.0.0",
     "vite": "^4.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "dist/images/favicon.ico"
+      },
+      "rebuildConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "DinamicJs",
+            "icon": "dist/images/favicon.ico",
+            "setupIcon": "dist/images/favicon.ico"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "icon": "dist/images/android-chrome-512x512.png"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {
+            "icon": "dist/images/android-chrome-512x512.png"
+          }
+        }
+      ]
+    }
   }
 }
