@@ -1,14 +1,11 @@
-import { BrowserRouter } from 'react-router-dom';
-import { AppRouter } from './router/AppRouter';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
+import { EditorPage } from './editor/pages/EditorPage';
 
 export const App = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <AppRouter />
-      </BrowserRouter>
+      <EditorPage />
     </Provider>
   );
 };

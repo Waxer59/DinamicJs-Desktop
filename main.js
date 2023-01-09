@@ -11,8 +11,8 @@ const createWindow = () => {
   Menu.setApplicationMenu(menu);
 
   mainWindow.loadFile(path.join(__dirname, 'dist', 'index.html'));
-  //  Open dev tools
-  //  mainWindow.webContents.openDevTools();
+  //!  Open dev tools
+   mainWindow.webContents.openDevTools();
 };
 
 app.whenReady().then(() => {

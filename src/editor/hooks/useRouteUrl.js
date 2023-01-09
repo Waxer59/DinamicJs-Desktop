@@ -1,9 +1,7 @@
-import { useNavigate } from 'react-router-dom';
 import { encode, decode, isValid } from 'js-base64';
 
 export const useRouteUrl = () => {
   const base64Param = document.location.pathname.replace('/', '');
-  const navigate = useNavigate();
 
   const getBase64Param = () => {
     return base64Param;
@@ -26,7 +24,6 @@ export const useRouteUrl = () => {
 
   const saveCodeUrl = (text) => {
     const encodedText = encodeText(text);
-    navigate(`/${encodedText}`);
   };
   return {
     decodeText,
