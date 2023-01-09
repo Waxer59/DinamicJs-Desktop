@@ -12,7 +12,7 @@ const createWindow = () => {
 
   mainWindow.loadFile(path.join(__dirname, 'dist', 'index.html'));
   //!  Open dev tools
-   mainWindow.webContents.openDevTools();
+  //  mainWindow.webContents.openDevTools();
 };
 
 app.whenReady().then(() => {
