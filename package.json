@@ -8,12 +8,11 @@
   "author": "Waxer59",
   "icon": "dist/images/favicon.ico",
   "scripts": {
-    "start": "yarn build && yarn electron:dev",
-    "build": "vite build",
-    "preview": "vite preview",
-    "electron:dev": "electron-forge start",
-    "electron:build": "yarn build && electron-forge make",
-    "electron:package": "electron-forge package"
+    "start": "yarn vite:build && yarn dev",
+    "vite:build": "vite build",
+    "dev": "electron-forge start",
+    "build": "yarn build && electron-forge make",
+    "package": "electron-forge package"
   },
   "dependencies": {
     "@babel/standalone": "^7.20.12",
