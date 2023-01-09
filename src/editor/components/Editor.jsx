@@ -1,16 +1,16 @@
 import { useRef, useState, useEffect } from 'react';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
-import { useRouteUrl } from '../hooks/useRouteUrl';
 import { useCodeStore } from '../hooks/useCodeStore';
 import { useSettingsStore } from '../hooks/useSettingsStore';
 import { useLocalStorage } from '../hooks/useLocalStorage';
+import { useRouteUrl } from '../hooks/useRouteUrl';
 
 export const Editor = () => {
   const [editor, setEditor] = useState(null);
-  const { decodeText, saveCodeUrl } = useRouteUrl();
   const { onSetActiveCode, uploadedCode, activeCode } = useCodeStore();
   const { onSetSettings } = useSettingsStore();
-  const { getLocalStorageItem } = useLocalStorage();
+  const { getLocalStorageItem, setLocalStorageItem } = useLocalStorage();
+  const { encodeText, decodeByCode } = useRouteUrl();
   const { settings } = useSettingsStore();
   const monacoEl = useRef(null);
 
@@ -18,7 +18,7 @@ export const Editor = () => {
     if (monacoEl.current && !editor) {
       setEditor(
         monaco.editor.create(monacoEl.current, {
-          value: decodeText(),
+          value: activeCode ?? '',
           language: 'javascript',
           automaticLayout: true, // resize the code area
           padding: {
@@ -37,20 +37,26 @@ export const Editor = () => {
   }, [monacoEl.current]);
 
   useEffect(() => {
+    if (getLocalStorageItem('dynamicSave') !== null && editor) {
+      editor.setValue(decodeByCode(getLocalStorageItem('dynamicSave')));
+    }
+  }, [editor]);
+
+  useEffect(() => {
     if (editor) {
       editor.setValue(uploadedCode);
     }
   }, [uploadedCode]);
 
   useEffect(() => {
-    editor?.updateOptions(settings);
-  }, [settings]);
-
-  useEffect(() => {
-    if (activeCode !== null) {
-      saveCodeUrl(activeCode);
+    if (getLocalStorageItem('dynamicSave') !== null && activeCode !== null) {
+      setLocalStorageItem('dynamicSave', encodeText(activeCode));
     }
   }, [activeCode]);
+
+  useEffect(() => {
+    editor?.updateOptions(settings);
+  }, [settings]);
 
   useEffect(() => {
     const settings = getLocalStorageItem('settings');

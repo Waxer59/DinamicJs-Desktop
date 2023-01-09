@@ -1,4 +1,4 @@
-# DinamicJs Desktop V2.7.6
+# DinamicJs Desktop V2.8.6
 
 It's the desktop version of [DinamicJs](https://github.com/Waxer59/DinamicJs) project.
 

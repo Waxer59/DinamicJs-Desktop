@@ -1,18 +1,23 @@
+import { useEffect } from 'react';
 import { CodeEditor } from '../components/CodeEditor';
 import { SideBar } from '../components/SideBar';
-import { useRouteUrl } from '../hooks/useRouteUrl';
-import { useCodeStore } from '../hooks/useCodeStore';
 import '../helpers/userWorker';
 import '../helpers/editorSnippets';
-import { useEffect } from 'react';
+import { useLocalStorage } from '../hooks/useLocalStorage';
+import { useCodeStore } from '../hooks/useCodeStore';
+import { useRouteUrl } from '../hooks/useRouteUrl';
 
 export const EditorPage = () => {
-  const { onSetUploadedCode } = useCodeStore();
-  const { decodeByCode, getBase64Param } = useRouteUrl();
+  const { setLocalStorageItem, getLocalStorageItem } = useLocalStorage();
+  const { onSetActiveCode, onSetUploadedCode } = useCodeStore();
+  const { decodeByCode } = useRouteUrl();
+
   useEffect(() => {
-    window.onpopstate = (event) => {
-      onSetUploadedCode(decodeByCode(getBase64Param()));
-    };
+    if (getLocalStorageItem('dynamicSave') === null) {
+      setLocalStorageItem('dynamicSave', '');
+    } else {
+      onSetActiveCode(decodeByCode(getLocalStorageItem('dynamicSave')));
+    }
   }, []);
 
   return (
