@@ -8,15 +8,16 @@ import {
   setCodeSaved,
   setUploadedCode
 } from '../../store/slices/code/codeSlice';
-import { useRouteUrl } from './useRouteUrl';
+
+import { useRouteUrl } from '../hooks/useRouteUrl';
 
 export const useCodeStore = () => {
   const dispatch = useDispatch();
-  const { encodeText, decodeByCode } = useRouteUrl();
+  const { decodeByCode } = useRouteUrl();
   const { codeSaved, activeCode, uploadedCode } = useSelector(
     (state) => state.code
   );
-  const onAddCodeSaved = (name, code = encodeText(activeCode)) => {
+  const onAddCodeSaved = (name, code = '') => {
     dispatch(addCodeSaved({ name, code }));
   };
 

@@ -1,17 +1,6 @@
 import { encode, decode, isValid } from 'js-base64';
 
 export const useRouteUrl = () => {
-  const base64Param = document.location.pathname.replace('/', '');
-
-  const getBase64Param = () => {
-    return base64Param;
-  };
-
-  const decodeText = () => {
-    const decodedText = isValid(base64Param) ? decode(base64Param) : '';
-    return decodedText;
-  };
-
   const decodeByCode = (code) => {
     const decodedText = isValid(code) ? decode(code) : '';
     return decodedText;
@@ -22,14 +11,8 @@ export const useRouteUrl = () => {
     return encodedText;
   };
 
-  const saveCodeUrl = (text) => {
-    const encodedText = encodeText(text);
-  };
   return {
-    decodeText,
-    saveCodeUrl,
     decodeByCode,
-    encodeText,
-    getBase64Param
+    encodeText
   };
 };
