@@ -29,10 +29,10 @@ jobs:
         run: yarn build
 
       - name: Package the app
-        run: npx electron-forge package
+        run: yarn package
 
       - name: Make the app
-        run: npx electron-forge make --platform ${{ matrix.os }}
+        run: yarn make
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
