@@ -5,8 +5,13 @@ It's the desktop version of [DinamicJs](https://github.com/Waxer59/DinamicJs) pr
 # How to use
 
 1. Install all the dependencies with `yarn` on the root folder.
-2. Run `yarn start` to start the app.
-3. Run `yarn electron:build` to build the app.
+2. Run `yarn start` to start the app in dev mode.
+
+# How to build the app
+
+1. Build the app using `yarn build`
+2. Package the app with the command `yarn package`
+3. Create the installation files with the command `yarn make`
 
 ## Snippets
 
