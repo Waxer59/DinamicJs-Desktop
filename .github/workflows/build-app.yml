@@ -1,4 +1,5 @@
 name: Build Electron App
+
 on:
   push:
     branches:
@@ -34,11 +35,8 @@ jobs:
       - name: Make the app
         run: yarn make
 
-      - name: Create dist dir
-        run: mkdir -p dist
-
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: electron-app
-          path: dist
+          path: download
