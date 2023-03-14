@@ -1,0 +1,30 @@
+name: Build Electron App
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          yarn-version: "1.x"
+      - name: Install Dependencies
+        run: yarn i
+      - name: Build Electron App
+        run: yarn build
+        env:
+          ELECTRON_CACHE: ${{ runner.os }}-electron-cache
+          ELECTRON_BUILDER_CACHE: ${{ runner.os }}-electron-builder-cache
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: electron-app
+          path: dist
