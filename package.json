@@ -10,8 +10,9 @@
   "scripts": {
     "start": "yarn vite:build && yarn dev",
     "vite:build": "vite build",
+    "build": "yarn vite:build",
     "dev": "electron-forge start",
-    "build": "yarn vite:build && electron-forge make",
+    "make": "electron-forge make",
     "package": "electron-forge package"
   },
   "dependencies": {
@@ -34,8 +35,10 @@
   "devDependencies": {
     "@electron-forge/cli": "^6.0.4",
     "@electron-forge/maker-deb": "^6.0.4",
+    "@electron-forge/maker-dmg": "^6.0.5",
     "@electron-forge/maker-rpm": "^6.0.4",
     "@electron-forge/maker-squirrel": "^6.0.4",
+    "@electron-forge/maker-zip": "^6.0.5",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.1",
@@ -67,6 +70,21 @@
         },
         {
           "name": "@electron-forge/maker-rpm",
+          "config": {
+            "icon": "dist/images/android-chrome-512x512.png"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "config": {
+            "icon": "dist/images/android-chrome-512x512.png"
+          },
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-dmg",
           "config": {
             "icon": "dist/images/android-chrome-512x512.png"
           }
