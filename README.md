@@ -13,6 +13,12 @@ It's the desktop version of [DinamicJs](https://github.com/Waxer59/DinamicJs) pr
 2. Package the app with the command `yarn package`
 3. Create the installation files with the command `yarn make`
 
+## Environments
+
+- DEV = development
+- TEST = testing
+- PROD = production
+
 ## Snippets
 
 - **clg** : console.log
@@ -49,4 +55,4 @@ It's the desktop version of [DinamicJs](https://github.com/Waxer59/DinamicJs) pr
 
 ## Install
 
-* You can download the latest version of the app [here](https://get-dinamicjs.netlify.app/)
+- You can download the latest version of the app [here](https://get-dinamicjs.netlify.app/)
