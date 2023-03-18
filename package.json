@@ -13,7 +13,10 @@
     "build": "yarn vite:build",
     "dev": "electron-forge start",
     "make": "electron-forge make",
-    "package": "electron-forge package"
+    "package": "electron-forge package",
+    "lint": "eslint \"{src,test}/**/*.{js,jsx}\" --fix",
+    "prepare": "husky install",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@babel/standalone": "^7.20.12",
@@ -45,6 +48,16 @@
     "electron": "^22.0.0",
     "electron-package": "^0.1.0",
     "electron-wix-msi": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.4",
     "vite": "^4.0.0"
   },
   "config": {
@@ -91,5 +104,9 @@
         }
       ]
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "eslint --fix",
+    "*.{js,html,md,scss,css,jsx}": "prettier --write"
   }
 }

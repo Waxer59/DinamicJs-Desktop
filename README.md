@@ -49,4 +49,4 @@ It's the desktop version of [DinamicJs](https://github.com/Waxer59/DinamicJs) pr
 
 ## Install
 
-* You can download the latest version of the app [here](https://get-dinamicjs.netlify.app/)
+- You can download the latest version of the app [here](https://get-dinamicjs.netlify.app/)

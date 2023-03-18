@@ -9,8 +9,7 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 export const CodeEditor = () => {
   const dropArea = useRef(null);
   const { throwToast } = useSweetAlert();
-  const { onSetUploadedCode, onSetCodeSaved, codeSaved } =
-    useCodeStore();
+  const { onSetUploadedCode, onSetCodeSaved, codeSaved } = useCodeStore();
   const { getLocalStorageItem, setLocalStorageItem } = useLocalStorage();
 
   useEffect(() => {

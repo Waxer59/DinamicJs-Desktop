@@ -9,7 +9,7 @@ import { useRouteUrl } from '../hooks/useRouteUrl';
 
 export const EditorPage = () => {
   const { setLocalStorageItem, getLocalStorageItem } = useLocalStorage();
-  const { onSetActiveCode, onSetUploadedCode } = useCodeStore();
+  const { onSetActiveCode } = useCodeStore();
   const { decodeByCode } = useRouteUrl();
 
   useEffect(() => {
