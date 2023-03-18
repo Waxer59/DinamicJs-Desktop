@@ -28,6 +28,8 @@
     "js-base64": "^3.7.4",
     "loop-protect": "^2.1.6",
     "monaco-editor": "^0.34.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-redux": "^8.0.5",
     "react-split": "^2.0.14",
@@ -58,8 +60,6 @@
     "husky": "^8.0.0",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.4",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "vite": "^4.2.0"
   },
   "lint-staged": {
