@@ -13,6 +13,12 @@ It's the desktop version of [DinamicJs](https://github.com/Waxer59/DinamicJs) pr
 2. Package the app with the command `yarn package`
 3. Create the installation files with the command `yarn make`
 
+## Environments
+
+- DEV = development
+- TEST = testing
+- PROD = production
+
 ## Snippets
 
 - **clg** : console.log
