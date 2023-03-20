@@ -19,7 +19,7 @@ It's the desktop version of [DinamicJs](https://github.com/Waxer59/DinamicJs) pr
 - TEST = testing
 - PROD = production
 
-## Snippets
+## Default Snippets
 
 - **clg** : console.log
 - **imp** : import
