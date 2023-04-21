@@ -1,16 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 
-import { useCodePreviewer } from '../hooks/useCodePreviewer';
-import { useCodeStore } from '../hooks/useCodeStore';
-
-export const CodePreviewer = () => {
-  const preview = useRef(null);
-  const { activeCode } = useCodeStore();
-  const { update } = useCodePreviewer();
-
+export const CodePreviewer = forwardRef((props, ref) => {
   useEffect(() => {
-    update(preview.current, activeCode);
-  }, [activeCode]);
-
-  return <iframe className="output" ref={preview}></iframe>;
-};
+    return () => {
+      ref.current = null;
+    };
+  }, []);
+  return <iframe className="output" ref={ref}></iframe>;
+});

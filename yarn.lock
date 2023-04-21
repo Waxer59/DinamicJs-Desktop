@@ -1128,6 +1128,11 @@ available-typed-arrays@^1.0.5:
   resolved "https://registry.yarnpkg.com/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz#92f95616501069d07d10edb2fc37d3e1c65123b7"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
 
+babel-plugin-auto-console-log@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/babel-plugin-auto-console-log/-/babel-plugin-auto-console-log-1.1.9.tgz#70fa98444ac97ba2c17296ddcdf71c603ebe9116"
+  integrity sha512-q8pR3qF4yoMm+XjDFhDRmmY5/GTvwUNecFC8VV4Gk7r/itCNpikMNW8DAzL+LQTZ30rn+8Yp5Ur0oBCKPV0BBA==
+
 balanced-match@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.2.tgz#e83e3a7e3f300b34cb9d87f615fa0cbf357690ee"

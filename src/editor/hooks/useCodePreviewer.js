@@ -1,4 +1,4 @@
-import { useProtectCode } from './useProtectCode';
+import { useTransformCode } from './useTransformCode';
 
 const OVERRIDE_CONSOLE = `
 Array.from(arguments).forEach((log)=>{
@@ -78,7 +78,7 @@ const STYLES = `
   }
 `;
 export const useCodePreviewer = () => {
-  const { protectCode } = useProtectCode();
+  const { protectCode } = useTransformCode();
 
   const update = (output, code) => {
     try {

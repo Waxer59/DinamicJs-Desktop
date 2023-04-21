@@ -15,7 +15,11 @@
     "react/react-in-jsx-scope": 0,
     "new-cap": 0,
     "no-useless-escape": 0,
-    "no-console": "error"
+    "no-console": "error",
+    "quotes": "off",
+    "multiline-ternary": "off",
+    "react/prop-types": "off",
+    "react/display-name": "off"
   },
   "settings": {
     "react": {
