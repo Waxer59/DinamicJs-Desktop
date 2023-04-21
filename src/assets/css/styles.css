@@ -286,3 +286,14 @@ body {
   width: 100vw !important;
   height: 100vh !important;
 }
+
+.split-btn {
+  position: fixed;
+  top: 20px;
+  font-size: clamp(20px, 3vw, 30px);
+  cursor: pointer;
+  color: var(--tertiary-color);
+  background-color: transparent;
+  border: none;
+  right: 20px;
+}

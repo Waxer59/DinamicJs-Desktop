@@ -50,12 +50,9 @@ export const useCodeStore = () => {
     dispatch(setCodeSaved(codeSaved));
   };
 
-  const onCheckNameAndCode = (name = '', code = '') => {
-    const Check = codeSaved.find((code) => code.name === name);
-    if (Check) {
-      return Check.code === code;
-    }
-    return false;
+  const onCheckNameAndCode = (name = '') => {
+    const check = codeSaved.find((code) => code.name === name);
+    return check;
   };
 
   return {

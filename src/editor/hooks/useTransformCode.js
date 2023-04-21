@@ -1,13 +1,15 @@
 import * as Babel from '@babel/standalone/babel';
 import protect from 'loop-protect';
+import autoConsoleLog from 'babel-plugin-auto-console-log';
 
 const TIMEOUT = 100;
 
 Babel.registerPlugin('loopProtection', protect(TIMEOUT));
-export const useProtectCode = () => {
+Babel.registerPlugin('autoConsoleLog', autoConsoleLog());
+export const useTransformCode = () => {
   const transform = (source) =>
     Babel.transform(source, {
-      plugins: ['loopProtection']
+      plugins: ['autoConsoleLog', 'loopProtection']
     }).code;
 
   const protectCode = (code) => {
