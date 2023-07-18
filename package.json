@@ -1,7 +1,7 @@
 {
   "name": "dinamicjs",
   "private": true,
-  "version": "2.8.6",
+  "version": "3.0.2",
   "main": "main.js",
   "description": "Your javascript playground now in desktop",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "vite:dev": "vite",
     "start": "yarn build && yarn dev",
     "build": "vite build",
-    "dev": "concurrently \"vite --port 3000\" \"electron-forge start\"",
+    "dev": "yarn build && concurrently \"vite --port 3000\" \"electron-forge start\"",
     "make": "electron-forge make",
     "package": "electron-forge package",
     "lint": "eslint \"{src,test}/**/*.{js,jsx}\" --fix",
@@ -66,5 +66,9 @@
   "lint-staged": {
     "*.{js,jsx}": "eslint --fix",
     "*.{js,html,md,scss,css,jsx}": "prettier --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Waxer59/DinamicJs-Desktop.git"
   }
 }
