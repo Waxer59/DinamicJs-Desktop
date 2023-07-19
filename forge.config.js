@@ -1,6 +1,16 @@
 module.exports = {
   packagerConfig: {
-    icon: 'dist/images/favicon.ico'
+    icon: 'dist/images/favicon.ico',
+    ignore: [
+      '^/public$',
+      '^/src$',
+      '[.](github|husky|template.env|env|eslintrc.json|prettierignore|prettierrc|gitignore)$',
+      'LICENSE.md',
+      'README.md',
+      'vite.config.js',
+      'index.html',
+      'forge.config.js'
+    ]
   },
   rebuildConfig: {},
   makers: [
