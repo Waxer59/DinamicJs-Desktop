@@ -39,6 +39,18 @@ app.whenReady().then(() => {
   createWindow();
 
   if (!handleSquirrelEventFirstRun()) {
+    const notificationMsg = {
+      title: 'Application Update',
+      body: 'A new version of the application is available. This update is being downloaded automatically',
+      icon: path.join(__dirname, 'dist', 'images', 'favicon.ico')
+    };
+
+    const notification = new Notification(
+      notificationMsg.title,
+      notificationMsg
+    );
+
+    notification.show();
     autoUpdater.checkForUpdates();
   }
 });
