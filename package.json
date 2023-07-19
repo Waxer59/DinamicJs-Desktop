@@ -1,7 +1,7 @@
 {
   "name": "dinamicjs",
   "private": true,
-  "version": "3.0.2",
+  "version": "3.0.3",
   "main": "main.js",
   "description": "Your javascript playground now in desktop",
   "license": "MIT",
