@@ -4,12 +4,15 @@ import {
   setSnippets,
   addNewSnippet,
   removeSnippet,
-  editSnippet
+  editSnippet,
+  setChatGPTOpen
 } from '../../store/slices/settings/settingsSlice';
 
 export const useSettingsStore = () => {
   const dispatch = useDispatch();
-  const { settings, snippets } = useSelector((state) => state.settings);
+  const { settings, snippets, isChatGPTOpen } = useSelector(
+    (state) => state.settings
+  );
 
   const onSetSettings = (settings) => {
     dispatch(setSettings(settings));
@@ -25,6 +28,10 @@ export const useSettingsStore = () => {
 
   const onRemoveSnippet = (label) => {
     dispatch(removeSnippet({ label }));
+  };
+
+  const onSetChatGPTOpen = (isOpen) => {
+    dispatch(setChatGPTOpen(isOpen));
   };
 
   const onEditSnippet = ({
@@ -50,6 +57,8 @@ export const useSettingsStore = () => {
     onAddNewSnippet,
     onRemoveSnippet,
     onEditSnippet,
-    onGetSnippetByLabel
+    onGetSnippetByLabel,
+    isChatGPTOpen,
+    onSetChatGPTOpen
   };
 };

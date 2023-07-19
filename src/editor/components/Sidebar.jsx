@@ -6,9 +6,11 @@ import { LOCALSTORAGE_ITEMS } from '../../constants/localStorageItemsConstants';
 import { SWAL2_ICONS } from '../../constants/sweetAlertIconsConstants';
 import downloadjs from 'downloadjs';
 import confetti from 'canvas-confetti';
+import { ChatGPT } from './ChatGPT';
 
-export const SideBar = () => {
-  const { settings, onSetSettings, snippets } = useSettingsStore();
+export const Sidebar = () => {
+  const { settings, onSetSettings, snippets, isChatGPTOpen, onSetChatGPTOpen } =
+    useSettingsStore();
   const { activeCode, codeSaved } = useCodeStore();
   const { setLocalStorageItem } = useLocalStorage();
   const { throwTextAlert, throwConfig, throwLocalSaves, throwToast } =
@@ -40,6 +42,7 @@ export const SideBar = () => {
     if (configValue) {
       onSetSettings(configValue);
       setLocalStorageItem(LOCALSTORAGE_ITEMS.SETTINGS, configValue);
+      throwToast(SWAL2_ICONS.SUCCESS, 'Saved!');
     }
   };
 
@@ -47,21 +50,30 @@ export const SideBar = () => {
     throwLocalSaves(codeSaved);
   };
 
+  const onChatGPTClick = () => {
+    onSetChatGPTOpen(!isChatGPTOpen);
+  };
+
   return (
-    <aside className="menu" id="menu">
-      <header>
-        <ul style={{ marginTop: '35px' }}>
-          <li key={1}>
+    <>
+      <aside className="menu" id="menu">
+        <ul>
+          <li>
             <button title="LocalSave" onClick={onLocalSaveClick}>
               <i className="fa-solid fa-bookmark"></i>
             </button>
           </li>
-          <li key={2} onClick={onDownloadClick}>
+          <li onClick={onDownloadClick}>
             <button title="Download">
               <i className="fa-solid fa-file-arrow-down"></i>
             </button>
           </li>
-          <li key={3}>
+          <li onClick={onChatGPTClick}>
+            <button title="Ask ChatGPT">
+              <i className="fa-solid fa-comments"></i>
+            </button>
+          </li>
+          <li>
             <button onClick={onSkypackClick} title="Skypack">
               <svg
                 role="img"
@@ -71,18 +83,15 @@ export const SideBar = () => {
               </svg>
             </button>
           </li>
-        </ul>
-      </header>
-      <footer>
-        <ul>
-          <li className="settings" key={5} title="Settings">
+          <li>
             <button onClick={onConfigClick}>
               <i className="fa-solid fa-gear settings"></i>
             </button>
             <span>Settings</span>
           </li>
         </ul>
-      </footer>
-    </aside>
+      </aside>
+      <ChatGPT />
+    </>
   );
 };

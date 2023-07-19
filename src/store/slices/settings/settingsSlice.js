@@ -9,7 +9,8 @@ export const settingsSlice = createSlice({
   name: 'settings',
   initialState: {
     settings: DEFAULT_SETTINGS,
-    snippets: DEFAULT_SNIPPETS
+    snippets: DEFAULT_SNIPPETS,
+    isChatGPTOpen: false
   },
   reducers: {
     setSettings: (state, { payload }) => {
@@ -50,6 +51,9 @@ export const settingsSlice = createSlice({
         return snippet;
       });
       state.snippets = newSnippetArray;
+    },
+    setChatGPTOpen: (state, { payload }) => {
+      state.isChatGPTOpen = payload;
     }
   }
 });
@@ -59,5 +63,6 @@ export const {
   setSnippets,
   addNewSnippet,
   removeSnippet,
-  editSnippet
+  editSnippet,
+  setChatGPTOpen
 } = settingsSlice.actions;

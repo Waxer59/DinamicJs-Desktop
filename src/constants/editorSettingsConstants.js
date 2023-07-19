@@ -169,5 +169,6 @@ export const DEFAULT_SETTINGS = {
   minimap: {
     enabled: false
   },
-  lineNumbers: false
+  lineNumbers: false,
+  chatGPTApiKey: null
 };

@@ -109,6 +109,7 @@ select {
   -webkit-backdrop-filter: blur(20px);
   border-radius: 10px;
 }
+
 input[type='number'] {
   padding: 2px;
   border: 1px solid #ccc;
@@ -120,6 +121,7 @@ input[type='number'] {
   -webkit-backdrop-filter: blur(20px);
   border-radius: 10px;
 }
+
 input[type='checkbox'] {
   margin: 0;
   padding: 0;
@@ -132,6 +134,114 @@ input[type='checkbox'] {
   -webkit-backdrop-filter: blur(20px);
   border-radius: 10px;
 }
+
+input[type='password'],
+input[type='text'] {
+  margin: 0;
+  padding: 10px 5px;
+  outline: none;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 5px;
+}
+
+input[type='password']::placeholder,
+input[type='text']::placeholder {
+  color: black;
+  opacity: 0.4;
+}
+
+.sidebar_ChatGPT_tab {
+  width: 35%;
+  background-color: var(--secondary-color);
+  font-family: 'Manrope', sans-serif;
+  color: var(--tertiary-color);
+  border-left: solid 1px var(--primary-color);
+  padding: 48px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.sidebar_chatGPT_messages {
+  padding: 0;
+  list-style: none;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.sidebar_chatGPT_content {
+  display: flex;
+  height: 90%;
+  gap: 20px;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.sidebar_chatGPT_search {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.sidebar_chatGPT_search button {
+  color: var(--tertiary-color);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.sidebar_chatGPT_search input {
+  width: 60%;
+}
+
+.sidebar_chatGPT_messages li {
+  width: 50%;
+  height: 50px;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.sidebar_chatGPT_messages_AI {
+  background-color: var(--primary-color);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.sidebar_chatGPT_messages_HUMAN {
+  background-color: var(--tertiary-color);
+  margin-left: auto;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.sidebar_ChatGPT_tab header {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar_ChatGPT_tab header button {
+  color: var(--tertiary-color);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.sidebar_ChatGPT_tab header h3 {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  margin: 0;
+}
+
 .config-btn {
   background: #007fff;
   border: none;
@@ -158,12 +268,17 @@ body {
   height: 100%;
 }
 
+body {
+  overflow: hidden;
+}
+
 #root {
   height: 100%;
   width: 100%;
 }
 
 .menu {
+  padding-top: 35px;
   width: 50px;
   background: var(--secondary-color);
   transition: all 0.5s ease;
@@ -171,9 +286,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-.menu .menu-btn {
-  float: right;
-}
+
 .menu button {
   transition: all 0.5s ease;
   width: 50px;
@@ -187,23 +300,26 @@ body {
 .menu button:hover {
   background: var(--primary-color);
 }
-.menu .menu-btn-toggle {
-  align-self: flex-end;
+
+.menu ul li:last-child {
+  margin-top: auto;
+  padding-bottom: 35px;
 }
 .menu ul {
   font-family: 'Manrope', sans-serif;
   padding: 0;
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   list-style: none;
+  height: 100%;
+  gap: 20px;
+  margin: 0;
+  overflow-x: hidden !important;
+  overflow-y: auto;
 }
 .menu ul li {
   transition: all 0.5s ease;
   color: var(--tertiary-color);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
 }
 .menu ul li svg {
   fill: var(--tertiary-color);
@@ -268,10 +384,6 @@ body {
   height: 100%;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 .settings {
   transition: all 0.3s ease;
 }
@@ -334,4 +446,18 @@ body {
 
 .notification-later-button {
   background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #5c5c5c;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6c6c6c;
 }
