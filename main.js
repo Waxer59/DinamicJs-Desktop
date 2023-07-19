@@ -38,65 +38,10 @@ app.on('activate', function () {
 app.whenReady().then(() => {
   createWindow();
 
-  if (handleSquirrelEvent()) {
-    return;
-  }
-
   if (!handleSquirrelEventFirstRun()) {
     autoUpdater.checkForUpdates();
   }
 });
-
-function handleSquirrelEvent() {
-  if (process.argv.length === 1) {
-    return false;
-  }
-  const ChildProcess = require('child_process');
-  const path = require('path');
-  const appFolder = path.resolve(process.execPath, '..');
-  const rootAtomFolder = path.resolve(appFolder, '..');
-  const updateDotExe = path.resolve(path.join(rootAtomFolder, 'Update.exe'));
-  const exeName = path.basename(process.execPath);
-  const spawn = function (command, args) {
-    let spawnedProcess;
-    try {
-      spawnedProcess = ChildProcess.spawn(command, args, { detached: true });
-    } catch (error) {}
-    return spawnedProcess;
-  };
-  const spawnUpdate = function (args) {
-    return spawn(updateDotExe, args);
-  };
-  const squirrelEvent = process.argv[1];
-  switch (squirrelEvent) {
-    case '--squirrel-install':
-    case '--squirrel-updated':
-      // Optionally do things such as:
-      // - Add your .exe to the PATH
-      // - Write to the registry for things like file associations and
-      //   explorer context menus
-      // Install desktop and start menu shortcuts
-      spawnUpdate(['--createShortcut', exeName]);
-      setTimeout(app.quit, 1000);
-      return true;
-    case '--squirrel-uninstall':
-      // Undo anything you did in the --squirrel-install and
-      // --squirrel-updated handlers
-      // Remove desktop and start menu shortcuts
-      spawnUpdate(['--removeShortcut', exeName]);
-      setTimeout(app.quit, 1000);
-      return true;
-    case '--squirrel-obsolete':
-      // This is called on the outgoing version of your app before
-      // we update to the new version - it's the opposite of
-      // --squirrel-updated
-      app.quit();
-      return true;
-    case '--squirrel-firstrun':
-      // This is called on the first run of the app
-      return false;
-  }
-}
 
 function handleSquirrelEventFirstRun() {
   if (process.argv.length === 1) {
@@ -111,18 +56,15 @@ app.on('window-all-closed', function () {
 });
 
 autoUpdater.on('update-available', () => {
-  const dialogOpts = {
-    type: 'info',
-    buttons: ['Restart now!', 'Later'],
+  const notificationMsg = {
     title: 'Application Update',
-    message: 'UPDATE AVAILABLE',
-    detail:
-      'A new version has been downloaded. Restart the application to apply the updates.'
+    body: 'A new version of the application is available. This update is being downloaded automatically',
+    icon: path.join(__dirname, 'dist', 'images', 'favicon.ico')
   };
 
-  dialog.showMessageBox(dialogOpts).then((returnValue) => {
-    if (returnValue.response === 0) autoUpdater.quitAndInstall();
-  });
+  const notification = new Notification(notificationMsg.title, notificationMsg);
+
+  notification.show();
 });
 
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
