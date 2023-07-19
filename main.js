@@ -32,22 +32,22 @@ const createWindow = () => {
   if (isDev) {
     mainWindow.webContents.openDevTools({ mode: 'detach' });
   }
+  mainWindow.once('ready-to-show', () => {
+    if (!handleSquirrelEventFirstRun()) {
+      autoUpdater.checkForUpdates();
+    }
+  });
 };
 
-app.whenReady().then(() => {
+app.on('activate', function () {
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
+});
+
+app.on('ready', function () {
   if (handleSquirrelEvent()) {
     return;
   }
-
   createWindow();
-
-  app.on('activate', function () {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
-  });
-
-  if (!handleSquirrelEventFirstRun()) {
-    autoUpdater.checkForUpdates();
-  }
 });
 
 function handleSquirrelEventFirstRun() {
