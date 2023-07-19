@@ -35,7 +35,8 @@
     "react-dropzone": "^14.2.3",
     "react-redux": "^8.0.5",
     "react-split": "^2.0.14",
-    "sweetalert2": "^11.6.16"
+    "sweetalert2": "^11.6.16",
+    "update-electron-app": "^2.0.1"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.4",
