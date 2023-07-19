@@ -1,4 +1,11 @@
-const { app, BrowserWindow, Menu, dialog, autoUpdater } = require('electron');
+const {
+  app,
+  BrowserWindow,
+  Menu,
+  dialog,
+  autoUpdater,
+  Notification
+} = require('electron');
 
 const path = require('node:path');
 
