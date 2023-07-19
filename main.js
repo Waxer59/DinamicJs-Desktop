@@ -37,31 +37,17 @@ app.on('activate', function () {
 
 app.whenReady().then(() => {
   createWindow();
+  const notificationMsg = {
+    title: 'Application Update',
+    body: 'A new version of the application is available. This update is being downloaded automatically',
+    icon: path.join(__dirname, 'dist', 'images', 'favicon.ico')
+  };
 
-  if (!handleSquirrelEventFirstRun()) {
-    const notificationMsg = {
-      title: 'Application Update',
-      body: 'A new version of the application is available. This update is being downloaded automatically',
-      icon: path.join(__dirname, 'dist', 'images', 'favicon.ico')
-    };
+  const notification = new Notification(notificationMsg.title, notificationMsg);
 
-    const notification = new Notification(
-      notificationMsg.title,
-      notificationMsg
-    );
-
-    notification.show();
-    autoUpdater.checkForUpdates();
-  }
+  notification.show();
+  autoUpdater.checkForUpdates();
 });
-
-function handleSquirrelEventFirstRun() {
-  if (process.argv.length === 1) {
-    return false;
-  }
-  const squirrelEvent = process.argv[1];
-  return squirrelEvent === '--squirrel-firstrun';
-}
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit();
