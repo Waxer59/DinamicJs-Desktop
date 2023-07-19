@@ -1,14 +1,12 @@
 const { app, BrowserWindow, Menu, dialog, autoUpdater } = require('electron');
 
 const path = require('node:path');
-const dotenv = require('dotenv');
-dotenv.config();
 
 const server = 'https://dinamic-js-desktop-auto-update.vercel.app';
 const url = `${server}/update/${process.platform}/${app.getVersion()}`;
 autoUpdater.setFeedURL({ url });
 
-const isDev = process.env.VITE_ENVIRONMENT === 'DEV';
+const isDev = process.env.DEV;
 
 let mainWindow;
 
@@ -35,7 +33,7 @@ app.on('activate', function () {
   if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });
 
-app.whenReady().then(() => {
+app.on('ready', () => {
   createWindow();
   const notificationMsg = {
     title: 'Application Update',
