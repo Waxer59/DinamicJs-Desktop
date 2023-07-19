@@ -111,7 +111,18 @@ app.on('window-all-closed', function () {
 });
 
 autoUpdater.on('update-available', () => {
-  mainWindow.webContents.send('update_available');
+  const dialogOpts = {
+    type: 'info',
+    buttons: ['Restart now!', 'Later'],
+    title: 'Application Update',
+    message: 'UPDATE AVAILABLE',
+    detail:
+      'A new version has been downloaded. Restart the application to apply the updates.'
+  };
+
+  dialog.showMessageBox(dialogOpts).then((returnValue) => {
+    if (returnValue.response === 0) autoUpdater.quitAndInstall();
+  });
 });
 
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
