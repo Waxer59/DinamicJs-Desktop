@@ -1,8 +1,6 @@
 const { app, BrowserWindow, Menu, ipcMain, autoUpdater } = require('electron');
 
 const path = require('node:path');
-const dotenv = require('dotenv');
-dotenv.config();
 
 const server = process.env.AUTO_UPDATE_URL;
 const url = `${server}/update/${process.platform}/${app.getVersion()}`;
