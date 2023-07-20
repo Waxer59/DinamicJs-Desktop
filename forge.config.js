@@ -8,7 +8,6 @@ module.exports = {
       'LICENSE.md',
       'README.md',
       'vite.config.js',
-      'index.html',
       'forge.config.js'
     ]
   },
