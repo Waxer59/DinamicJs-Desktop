@@ -17,7 +17,8 @@ module.exports = {
       name: '@electron-forge/maker-squirrel',
       config: {
         name: 'DinamicJs',
-        icon: 'dist/images/favicon.ico',
+        iconUrl:
+          'https://raw.githubusercontent.com/Waxer59/DinamicJs-Desktop/main/public/images/favicon.ico',
         setupIcon: 'dist/images/favicon.ico'
       }
     },
