@@ -45,7 +45,7 @@ module.exports = {
     {
       name: '@electron-forge/maker-dmg',
       config: {
-        background: './assets/dmg-background.png',
+        background: './.vite/build/images/android-chrome-512x512.png',
         format: 'ULFO'
       }
     }
