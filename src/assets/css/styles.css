@@ -5,8 +5,8 @@
 }
 
 html.light:root {
-  --primary-color: #e4e4e4;
-  --secondary-color: #e4e4e4;
+  --primary-color: #ffffff;
+  --secondary-color: #ebebeb;
   --tertiary-color: #2c2c2c;
 }
 @font-face {
@@ -178,11 +178,12 @@ input[type='text']::placeholder,
   display: flex;
   flex-direction: column;
   gap: 50px;
+  overflow: auto;
 }
 
 .sidebar_ChatGPT_tab h4 {
   text-align: center;
-  font-size: 20px;
+  font-size: clamp(14px, 1.5vw, 20px);
 }
 
 .js {
@@ -305,7 +306,7 @@ br {
 .sidebar_ChatGPT_tab header h3 {
   width: 100%;
   text-align: center;
-  font-size: 24px;
+  font-size: clamp(16px, 2vw, 24px);
   margin: 0;
 }
 

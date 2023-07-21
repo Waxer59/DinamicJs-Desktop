@@ -1145,10 +1145,10 @@ axios@^0.26.0:
   dependencies:
     follow-redirects "^1.14.8"
 
-babel-plugin-auto-console-log@^1.1.11:
-  version "1.1.12"
-  resolved "https://registry.yarnpkg.com/babel-plugin-auto-console-log/-/babel-plugin-auto-console-log-1.1.12.tgz#0085d4560142888eaf21f9bd97298f34656deb58"
-  integrity sha512-KirPWhqxW/dHVpQO7hXO7d8kJztv75Y5ay2rGtgeHatjcze3fwuzV/hyV3HqZ+wEpt7mCV80HyxEooBcjSSeLg==
+babel-plugin-auto-console-log@^1.1.13:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/babel-plugin-auto-console-log/-/babel-plugin-auto-console-log-1.1.13.tgz#84e0968e55ed244cf2d713de308dbea7b5b43fc3"
+  integrity sha512-UWhwhPuZpGLi7ndbVpNMd6bHj6RK7hh1DZNKGVN3wMsugaLyCWPbtF+2N3+Ky1yv7H2zq0NWJVuZ98+j/w7Wmg==
 
 balanced-match@^1.0.0:
   version "1.0.2"

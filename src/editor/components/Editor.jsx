@@ -36,6 +36,11 @@ export const Editor = () => {
         onSetActiveCode(editor.getValue());
       });
       setChatGPTFeatures(editor, (ed) => {
+        if (!settings.chatGPTApiKey) {
+          alert('You need to set ChatGPT API Key to use this feature');
+          return;
+        }
+
         const selectedText = ed
           .getModel()
           .getValueInRange(editor.getSelection());

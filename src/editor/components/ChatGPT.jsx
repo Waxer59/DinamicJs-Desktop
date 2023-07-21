@@ -35,15 +35,13 @@ export const ChatGPT = () => {
 
   useEffect(() => {
     if (messagesContainerRef.current) {
-      messagesContainerRef.current.addEventListener(
-        'DOMNodeInserted',
-        (event) => {
-          const { currentTarget: target } = event;
-          target.scroll({ top: target.scrollHeight, behavior: 'smooth' });
-        }
-      );
+      const { scrollHeight } = messagesContainerRef.current;
+      messagesContainerRef.current.scrollTo({
+        top: scrollHeight,
+        behavior: 'smooth'
+      });
     }
-  }, []);
+  }, [messagesContainerRef.current.scrollHeight]);
 
   useEffect(() => {
     if (isChatGPTOpen && !isLoading && textAreaRef.current) {
