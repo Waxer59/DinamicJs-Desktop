@@ -1,6 +1,15 @@
 module.exports = {
   packagerConfig: {
-    icon: 'dist/images/favicon.ico'
+    icon: 'dist/images/favicon.ico',
+    ignore: [
+      '^/public$',
+      '^/src$',
+      '[.](github|husky|template.env|env|eslintrc.json|prettierignore|prettierrc|gitignore)$',
+      'LICENSE.md',
+      'README.md',
+      'vite.config.js',
+      'forge.config.js'
+    ]
   },
   rebuildConfig: {},
   makers: [
@@ -8,7 +17,8 @@ module.exports = {
       name: '@electron-forge/maker-squirrel',
       config: {
         name: 'DinamicJs',
-        icon: 'dist/images/favicon.ico',
+        iconUrl:
+          'https://raw.githubusercontent.com/Waxer59/DinamicJs-Desktop/main/public/images/favicon.ico',
         setupIcon: 'dist/images/favicon.ico'
       }
     },
