@@ -9,7 +9,8 @@ module.exports = {
       'README.md',
       'vite.config.js',
       'forge.config.js'
-    ]
+    ],
+    asar: true
   },
   rebuildConfig: {},
   makers: [
@@ -46,6 +47,10 @@ module.exports = {
       config: {
         icon: 'dist/images/android-chrome-512x512.png'
       }
+    },
+    {
+      name: '@electron-forge/plugin-auto-unpack-natives',
+      config: {}
     }
   ]
 };
