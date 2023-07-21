@@ -15,9 +15,9 @@ It's the desktop version of [DinamicJs](https://github.com/Waxer59/DinamicJs) pr
 
 ## Environments
 
-- development
-- testing
-- production
+- DEV = development
+- TEST = testing
+- PROD = production
 
 ## Default Snippets
 

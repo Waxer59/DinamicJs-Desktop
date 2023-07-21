@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { CodeEditor, SideBar } from '../components';
+import { CodeEditor, Sidebar } from '../components';
 import {
   useCodeStore,
   useLocalStorage,
@@ -61,7 +61,7 @@ export const EditorPage = () => {
 
   return (
     <>
-      <SideBar />
+      <Sidebar />
       <CodeEditor />
     </>
   );

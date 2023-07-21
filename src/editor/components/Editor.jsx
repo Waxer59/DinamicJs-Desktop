@@ -1,20 +1,22 @@
-import { useRef, useState, useEffect } from 'react';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
+import { useRef, useState, useEffect } from 'react';
 import { useCodeStore } from '../hooks/useCodeStore';
 import { useSettingsStore } from '../hooks/useSettingsStore';
 import { useBase64, useLocalStorage } from '../hooks';
 import { LOCALSTORAGE_ITEMS } from '../../constants/localStorageItemsConstants';
+import { setChatGPTFeatures } from '../helpers/editorSnippets';
 
 export const Editor = () => {
   const [editor, setEditor] = useState(null);
   const { onSetActiveCode, uploadedCode } = useCodeStore();
-  const { settings } = useSettingsStore();
+  const { settings, onSetChatGPTQuestion } = useSettingsStore();
   const { decodeBase64 } = useBase64();
   const { getLocalStorageItem } = useLocalStorage();
   const monacoEl = useRef(null);
 
   useEffect(() => {
     if (monacoEl.current && !editor) {
+      const { chatGPTApiKey, ...editorSettings } = settings;
       setEditor(
         monaco.editor.create(monacoEl.current, {
           value: decodeBase64(
@@ -25,13 +27,33 @@ export const Editor = () => {
           padding: {
             top: 16
           },
-          ...settings
+          ...editorSettings
         })
       );
     }
     if (editor) {
       editor.onDidChangeModelContent(() => {
         onSetActiveCode(editor.getValue());
+      });
+      setChatGPTFeatures(editor, (ed) => {
+        const selectedText = ed
+          .getModel()
+          .getValueInRange(editor.getSelection());
+        const settings = JSON.parse(
+          localStorage.getItem(LOCALSTORAGE_ITEMS.SETTINGS)
+        );
+
+        if (!settings.chatGPTApiKey) {
+          alert(
+            'Please provide an OpenAI API key in the configuration section to use this feature.'
+          );
+          return;
+        }
+        if (selectedText.trim().length <= 0) {
+          alert('Please select some text to ask ChatGPT');
+          return;
+        }
+        onSetChatGPTQuestion(selectedText);
       });
     }
     return () => editor?.dispose();
@@ -44,7 +66,8 @@ export const Editor = () => {
   }, [uploadedCode]);
 
   useEffect(() => {
-    editor?.updateOptions(settings);
+    const { chatGPTApiKey, ...editorSettings } = settings;
+    editor?.updateOptions(editorSettings);
   }, [settings]);
 
   return <div className="code" ref={monacoEl}></div>;

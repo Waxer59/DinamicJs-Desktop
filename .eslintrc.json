@@ -19,7 +19,8 @@
     "multiline-ternary": "off",
     "react/prop-types": "off",
     "react/display-name": "off",
-    "space-before-function-paren": "off"
+    "space-before-function-paren": "off",
+    "react/no-unescaped-entities": "off"
   },
   "settings": {
     "react": {

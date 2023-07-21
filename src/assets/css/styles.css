@@ -5,8 +5,8 @@
 }
 
 html.light:root {
-  --primary-color: #e4e4e4;
-  --secondary-color: #e4e4e4;
+  --primary-color: #ffffff;
+  --secondary-color: #ebebeb;
   --tertiary-color: #2c2c2c;
 }
 @font-face {
@@ -98,7 +98,7 @@ html.light:root {
   gap: 1rem;
 }
 
-select {
+.config__item select {
   border-radius: 5px;
   padding: 2px;
   border: 1px solid #ccc;
@@ -109,7 +109,8 @@ select {
   -webkit-backdrop-filter: blur(20px);
   border-radius: 10px;
 }
-input[type='number'] {
+
+.config__item input[type='number'] {
   padding: 2px;
   border: 1px solid #ccc;
   text-align: center;
@@ -120,7 +121,8 @@ input[type='number'] {
   -webkit-backdrop-filter: blur(20px);
   border-radius: 10px;
 }
-input[type='checkbox'] {
+
+.config__item input[type='checkbox'] {
   margin: 0;
   padding: 0;
   width: 1rem;
@@ -132,6 +134,183 @@ input[type='checkbox'] {
   -webkit-backdrop-filter: blur(20px);
   border-radius: 10px;
 }
+
+.config__item input[type='password'],
+.config__item input[type='text'] {
+  margin: 0;
+  padding: 10px 5px;
+  outline: none;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 5px;
+}
+
+.sidebar_chatGPT_search textarea {
+  outline: none;
+  width: 75%;
+  resize: none;
+  max-height: 200px;
+  padding: 12px;
+  height: 42px;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+
+input[type='password']::placeholder,
+input[type='text']::placeholder,
+.sidebar_chatGPT_search textarea::placeholder {
+  color: black;
+  display: flex;
+  opacity: 0.4;
+}
+
+.sidebar_ChatGPT_tab {
+  width: 35%;
+  background-color: var(--secondary-color);
+  font-family: 'Manrope', sans-serif;
+  color: var(--tertiary-color);
+  border-left: solid 1px var(--primary-color);
+  border-right: solid 1px var(--primary-color);
+  padding: 48px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  overflow: auto;
+}
+
+.sidebar_ChatGPT_tab h4 {
+  text-align: center;
+  font-size: clamp(14px, 1.5vw, 20px);
+}
+
+.js {
+  margin: 0;
+}
+
+br {
+  display: none;
+}
+
+.sidebar_chatGPT_messages {
+  padding: 0;
+  list-style: none;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.sidebar_chatGPT_content {
+  display: flex;
+  height: 90%;
+  gap: 20px;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.sidebar_chatGPT_search {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.sidebar_chatGPT_search button {
+  color: var(--tertiary-color);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.sidebar_chatGPT_search input {
+  width: 60%;
+}
+
+.sidebar_chatGPT_messages_AI,
+.sidebar_chatGPT_messages_HUMAN {
+  width: 50%;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px;
+}
+
+.sidebar_chatGPT_messages_AI code,
+.sidebar_chatGPT_messages_HUMAN code {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.sidebar_chatGPT_messages li ul,
+.sidebar_chatGPT_messages li ol {
+  margin: 10px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar_chatGPT_messages li pre {
+  padding: 10px 0px;
+  overflow: auto;
+}
+
+.sidebar_chatGPT_messages p {
+  margin: 0;
+  font-size: clamp(10px, 1.5vw, 18px);
+  line-height: clamp(16px, 1.5vw, 24px);
+}
+
+.hljs {
+  background-color: var(--secondary-color) !important;
+}
+
+.sidebar_chatGPT_messages code {
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.sidebar_chatGPT_messages_HUMAN {
+  color: var(--primary-color);
+}
+
+.sidebar_chatGPT_messages_AI {
+  background-color: var(--primary-color);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.sidebar_chatGPT_messages_HUMAN {
+  background-color: var(--tertiary-color);
+  margin-left: auto;
+  margin-right: 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.sidebar_ChatGPT_tab header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar_ChatGPT_tab header button {
+  color: var(--tertiary-color);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.sidebar_ChatGPT_tab header h3 {
+  width: 100%;
+  text-align: center;
+  font-size: clamp(16px, 2vw, 24px);
+  margin: 0;
+}
+
 .config-btn {
   background: #007fff;
   border: none;
@@ -158,12 +337,17 @@ body {
   height: 100%;
 }
 
+body {
+  overflow: hidden;
+}
+
 #root {
   height: 100%;
   width: 100%;
 }
 
 .menu {
+  padding-top: 35px;
   width: 50px;
   background: var(--secondary-color);
   transition: all 0.5s ease;
@@ -171,9 +355,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-.menu .menu-btn {
-  float: right;
-}
+
 .menu button {
   transition: all 0.5s ease;
   width: 50px;
@@ -187,23 +369,36 @@ body {
 .menu button:hover {
   background: var(--primary-color);
 }
-.menu .menu-btn-toggle {
-  align-self: flex-end;
+
+.menu ul li:last-child {
+  margin-top: auto;
+  padding-bottom: 35px;
+  transition: all 0.3s ease;
 }
+
+.settings {
+  transition: all 0.3s ease;
+}
+
+.settings:hover i {
+  transform: rotate(90deg);
+}
+
 .menu ul {
   font-family: 'Manrope', sans-serif;
   padding: 0;
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   list-style: none;
+  height: 100%;
+  gap: 20px;
+  margin: 0;
+  overflow-x: hidden !important;
+  overflow-y: auto;
 }
 .menu ul li {
   transition: all 0.5s ease;
   color: var(--tertiary-color);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
 }
 .menu ul li svg {
   fill: var(--tertiary-color);
@@ -268,18 +463,6 @@ body {
   height: 100%;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
-.settings {
-  transition: all 0.3s ease;
-}
-
-.settings:hover i {
-  transform: rotate(90deg);
-}
-
 .dropZone {
   position: absolute !important;
   z-index: 100;
@@ -302,36 +485,17 @@ body {
   display: none !important;
 }
 
-.notification {
-  font-family: 'Manrope', sans-serif;
-  color: white;
-  position: absolute;
-  bottom: 20px;
-  max-width: 25ch;
-  right: 20px;
-  background-color: var(--secondary-color);
-  padding: 25px;
-  border-radius: 24px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
 }
-
-.notification-buttons {
-  display: flex;
-  gap: 10px;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
-
-.notification-buttons button {
+::-webkit-scrollbar-thumb {
+  background: #5c5c5c;
   border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  color: white;
 }
-
-.notification-install-button {
-  background-color: var(--primary-color);
-}
-
-.notification-later-button {
-  background-color: transparent;
+::-webkit-scrollbar-thumb:hover {
+  background: #6c6c6c;
 }

@@ -1,6 +1,6 @@
 module.exports = {
   packagerConfig: {
-    icon: 'dist/images/favicon.ico',
+    icon: './.vite/build/images/favicon.ico',
     ignore: [
       '^/public$',
       '^/src$',
@@ -9,7 +9,8 @@ module.exports = {
       'README.md',
       'vite.config.js',
       'forge.config.js'
-    ]
+    ],
+    asar: true
   },
   rebuildConfig: {},
   makers: [
@@ -19,32 +20,49 @@ module.exports = {
         name: 'DinamicJs',
         iconUrl:
           'https://raw.githubusercontent.com/Waxer59/DinamicJs-Desktop/main/public/images/favicon.ico',
-        setupIcon: 'dist/images/favicon.ico'
+        setupIcon: './.vite/build/images/favicon.ico'
       }
     },
     {
       name: '@electron-forge/maker-deb',
       config: {
-        icon: 'dist/images/android-chrome-512x512.png'
+        icon: './.vite/build/images/android-chrome-512x512.png'
       }
     },
     {
       name: '@electron-forge/maker-rpm',
       config: {
-        icon: 'dist/images/android-chrome-512x512.png'
+        icon: './.vite/build/images/android-chrome-512x512.png'
       }
     },
     {
       name: '@electron-forge/maker-zip',
       config: {
-        icon: 'dist/images/android-chrome-512x512.png'
+        icon: './.vite/build/images/android-chrome-512x512.png'
       },
       platforms: ['darwin']
+    }
+  ],
+  plugins: [
+    {
+      name: '@electron-forge/plugin-auto-unpack-natives',
+      config: {}
     },
     {
-      name: '@electron-forge/maker-dmg',
+      name: '@electron-forge/plugin-vite',
       config: {
-        icon: 'dist/images/android-chrome-512x512.png'
+        build: [
+          {
+            entry: 'main.js',
+            config: 'vite.main.config.js'
+          }
+        ],
+        renderer: [
+          {
+            name: 'main_window',
+            config: 'vite.renderer.config.js'
+          }
+        ]
       }
     }
   ]

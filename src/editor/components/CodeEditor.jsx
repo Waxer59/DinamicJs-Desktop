@@ -6,6 +6,7 @@ import { useCodeStore } from '../hooks/useCodeStore';
 import { useSweetAlert } from '../hooks/useSweetAlert';
 import { SWAL2_ICONS } from '../../constants/sweetAlertIconsConstants';
 import { useCodePreviewer } from '../hooks/useCodePreviewer';
+import { useSettingsStore } from '../hooks';
 
 export const CodeEditor = () => {
   const dropArea = useRef(null);
@@ -15,6 +16,7 @@ export const CodeEditor = () => {
   const { throwToast } = useSweetAlert();
   const { onSetUploadedCode, activeCode } = useCodeStore();
   const { update } = useCodePreviewer();
+  const { settings } = useSettingsStore();
 
   useEffect(() => {
     const getTextFromFile = (file) => {
@@ -73,7 +75,7 @@ export const CodeEditor = () => {
       height: 100%;
       width: 100%;
       border: none;
-      background-color: #2C2C2C;
+      background-color: ${settings.theme === 'vs-dark' ? '#2C2C2C' : '#E4E4E4'};
       color: #9F9F9F;
     }
     </style>`;

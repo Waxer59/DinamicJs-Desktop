@@ -26,12 +26,6 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
-      - name: Build the app
-        run: yarn build
-
-      - name: Package the app
-        run: yarn package
-
       - name: Make the app
         run: yarn make
 
