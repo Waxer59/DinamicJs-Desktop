@@ -41,7 +41,7 @@ export const ChatGPT = () => {
         behavior: 'smooth'
       });
     }
-  }, [messagesContainerRef.current.scrollHeight]);
+  }, [messagesContainerRef]);
 
   useEffect(() => {
     if (isChatGPTOpen && !isLoading && textAreaRef.current) {
