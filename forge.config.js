@@ -20,7 +20,7 @@ module.exports = {
         name: 'DinamicJs',
         iconUrl:
           'https://raw.githubusercontent.com/Waxer59/DinamicJs-Desktop/main/public/images/favicon.ico',
-        setupIcon: './images/favicon.ico'
+        setupIcon: './.vite/build/images/favicon.ico'
       }
     },
     {
