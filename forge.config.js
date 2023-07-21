@@ -53,7 +53,7 @@ module.exports = {
       config: {
         build: [
           {
-            entry: 'src/main.js',
+            entry: './main.js',
             config: 'vite.config.js'
           }
         ],
