@@ -2,8 +2,6 @@ const { app, BrowserWindow, Menu } = require('electron');
 
 const path = require('node:path');
 
-// TODO: FIX MONACO EDITOR ACTION (ASK CHATGPT)
-
 const isDev = !app.isPackaged;
 
 let mainWindow;
@@ -12,7 +10,7 @@ if (require('electron-squirrel-startup')) app.quit();
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
-    icon: path.join(__dirname, 'dist', 'images', 'favicon.ico'),
+    icon: path.join(__dirname, 'images', 'favicon.ico'),
     minWidth: 500,
     minHeight: 270,
     width: 800,
@@ -22,8 +20,8 @@ const createWindow = () => {
   Menu.setApplicationMenu(menu);
   mainWindow.loadURL(
     isDev
-      ? 'http://localhost:3000'
-      : `file://${path.join(__dirname, 'dist', 'index.html')}`
+      ? 'http://localhost:5173'
+      : `file://${path.join(__dirname, '../renderer/main_window/index.html')}`
   );
   //!  Open dev tools
   if (isDev) {

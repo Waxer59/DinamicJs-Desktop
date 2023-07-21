@@ -1,6 +1,6 @@
 module.exports = {
   packagerConfig: {
-    icon: 'dist/images/favicon.ico',
+    icon: './.vite/build/images/favicon.ico',
     ignore: [
       '^/public$',
       '^/src$',
@@ -20,25 +20,25 @@ module.exports = {
         name: 'DinamicJs',
         iconUrl:
           'https://raw.githubusercontent.com/Waxer59/DinamicJs-Desktop/main/public/images/favicon.ico',
-        setupIcon: 'dist/images/favicon.ico'
+        setupIcon: './images/favicon.ico'
       }
     },
     {
       name: '@electron-forge/maker-deb',
       config: {
-        icon: 'dist/images/android-chrome-512x512.png'
+        icon: './.vite/build/images/android-chrome-512x512.png'
       }
     },
     {
       name: '@electron-forge/maker-rpm',
       config: {
-        icon: 'dist/images/android-chrome-512x512.png'
+        icon: './.vite/build/images/android-chrome-512x512.png'
       }
     },
     {
       name: '@electron-forge/maker-zip',
       config: {
-        icon: 'dist/images/android-chrome-512x512.png'
+        icon: './.vite/build/images/android-chrome-512x512.png'
       },
       platforms: ['darwin']
     }
@@ -53,11 +53,16 @@ module.exports = {
       config: {
         build: [
           {
-            entry: './main.js',
-            config: 'vite.config.js'
+            entry: 'main.js',
+            config: 'vite.main.config.js'
           }
         ],
-        renderer: []
+        renderer: [
+          {
+            name: 'main_window',
+            config: 'vite.renderer.config.js'
+          }
+        ]
       }
     }
   ]
