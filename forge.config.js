@@ -41,6 +41,13 @@ module.exports = {
         icon: './.vite/build/images/android-chrome-512x512.png'
       },
       platforms: ['darwin']
+    },
+    {
+      name: '@electron-forge/maker-dmg',
+      config: {
+        background: './assets/dmg-background.png',
+        format: 'ULFO'
+      }
     }
   ],
   plugins: [
