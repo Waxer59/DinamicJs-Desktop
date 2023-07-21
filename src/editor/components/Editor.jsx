@@ -4,11 +4,13 @@ import { useCodeStore } from '../hooks/useCodeStore';
 import { useSettingsStore } from '../hooks/useSettingsStore';
 import { useBase64, useLocalStorage } from '../hooks';
 import { LOCALSTORAGE_ITEMS } from '../../constants/localStorageItemsConstants';
+import { setChatGPTFeatures } from '../helpers/editorSnippets';
+import 'highlight.js/styles/atom-one-dark.css';
 
 export const Editor = () => {
   const [editor, setEditor] = useState(null);
   const { onSetActiveCode, uploadedCode } = useCodeStore();
-  const { settings } = useSettingsStore();
+  const { settings, onSetChatGPTQuestion } = useSettingsStore();
   const { decodeBase64 } = useBase64();
   const { getLocalStorageItem } = useLocalStorage();
   const monacoEl = useRef(null);
@@ -32,6 +34,17 @@ export const Editor = () => {
     if (editor) {
       editor.onDidChangeModelContent(() => {
         onSetActiveCode(editor.getValue());
+      });
+      setChatGPTFeatures(editor, (ed) => {
+        const selectedText = ed
+          .getModel()
+          .getValueInRange(editor.getSelection());
+
+        if (selectedText.trim().length <= 0) {
+          alert('Please select some text to ask ChatGPT');
+          return;
+        }
+        onSetChatGPTQuestion(selectedText);
       });
     }
     return () => editor?.dispose();

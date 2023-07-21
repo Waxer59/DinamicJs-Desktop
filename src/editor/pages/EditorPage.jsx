@@ -9,7 +9,6 @@ import {
 import '../helpers/userWorker';
 import { LOCALSTORAGE_ITEMS } from '../../constants/localStorageItemsConstants';
 import { setEditorSnippets } from '../helpers/editorSnippets';
-import { NewVersionNotification } from '../components/NewVersionNotification';
 
 export const EditorPage = () => {
   const { getLocalStorageItem, setLocalStorageItem } = useLocalStorage();
@@ -64,7 +63,6 @@ export const EditorPage = () => {
     <>
       <Sidebar />
       <CodeEditor />
-      <NewVersionNotification />
     </>
   );
 };

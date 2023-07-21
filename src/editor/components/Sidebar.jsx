@@ -83,11 +83,10 @@ export const Sidebar = () => {
               </svg>
             </button>
           </li>
-          <li>
+          <li className="settings">
             <button onClick={onConfigClick}>
               <i className="fa-solid fa-gear settings"></i>
             </button>
-            <span>Settings</span>
           </li>
         </ul>
       </aside>

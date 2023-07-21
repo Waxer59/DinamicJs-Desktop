@@ -8,7 +8,7 @@ const server = process.env.AUTO_UPDATE_URL;
 const url = `${server}/update/${process.platform}/${app.getVersion()}`;
 autoUpdater.setFeedURL({ url });
 
-const isDev = process.env.VITE_ENVIRONMENT === 'DEV';
+const isDev = process.env.NODE_ENV === 'development';
 
 let mainWindow;
 

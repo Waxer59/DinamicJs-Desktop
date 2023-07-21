@@ -19,7 +19,9 @@
     "quotes": "off",
     "multiline-ternary": "off",
     "react/prop-types": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "space-before-function-paren": "off",
+    "react/no-unescaped-entities": "off"
   },
   "settings": {
     "react": {
