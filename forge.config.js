@@ -41,16 +41,24 @@ module.exports = {
         icon: 'dist/images/android-chrome-512x512.png'
       },
       platforms: ['darwin']
-    },
-    {
-      name: '@electron-forge/maker-dmg',
-      config: {
-        icon: 'dist/images/android-chrome-512x512.png'
-      }
-    },
+    }
+  ],
+  plugins: [
     {
       name: '@electron-forge/plugin-auto-unpack-natives',
       config: {}
+    },
+    {
+      name: '@electron-forge/plugin-vite',
+      config: {
+        build: [
+          {
+            entry: 'src/main.js',
+            config: 'vite.config.js'
+          }
+        ],
+        renderer: []
+      }
     }
   ]
 };
