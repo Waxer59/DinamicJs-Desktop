@@ -35,7 +35,7 @@ export const useSettingsStore = () => {
     dispatch(removeSnippet({ label }));
   };
 
-  const onSetChatGPTOpen = (isOpen) => {
+  const onSetIsChatGPTOpen = (isOpen) => {
     dispatch(setChatGPTOpen(isOpen));
   };
 
@@ -64,7 +64,7 @@ export const useSettingsStore = () => {
     onEditSnippet,
     onGetSnippetByLabel,
     isChatGPTOpen,
-    onSetChatGPTOpen,
+    onSetIsChatGPTOpen,
     chatGPTQuestion,
     onSetChatGPTQuestion
   };

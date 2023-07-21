@@ -4,6 +4,7 @@ import { askGPT } from '../../services/openaiAPI';
 import { BeatLoader } from 'react-spinners';
 import snarkdown from 'snarkdown';
 import hljs from 'highlight.js';
+import 'highlight.js/styles/atom-one-dark.css';
 
 const ROLES = {
   system: 'system',
@@ -14,18 +15,23 @@ const ROLES = {
 export const ChatGPT = () => {
   const {
     isChatGPTOpen,
-    onSetChatGPTOpen,
+    onSetIsChatGPTOpen,
     settings,
     chatGPTQuestion,
     onSetChatGPTQuestion
   } = useSettingsStore();
   const { chatGPTApiKey } = settings;
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    {
+      role: ROLES.asistant,
+      content: `Welcome to the AI chat room!`
+    }
+  ]);
   const [isLoading, setIsLoading] = useState(false);
   const textAreaRef = useRef(null);
   const messagesContainerRef = useRef(null);
 
-  const handleChange = (e) => {
+  const handleChange = () => {
     const el = textAreaRef.current;
     el.style.height = '0px';
     const scrollHeight = el.scrollHeight;
@@ -41,20 +47,27 @@ export const ChatGPT = () => {
         behavior: 'smooth'
       });
     }
-  }, [messagesContainerRef]);
+  }, [messagesContainerRef.current?.scrollHeight]);
 
   useEffect(() => {
     if (isChatGPTOpen && !isLoading && textAreaRef.current) {
       textAreaRef.current.focus();
     }
-  }, [isChatGPTOpen, isLoading]);
+  }, [isChatGPTOpen]);
 
   useEffect(() => {
-    hljs.highlightAll();
-  }, [messages]);
+    if (settings.chatGPTApiKey) {
+      hljs.highlightAll();
+    }
+  }, [messages, settings]);
+
   useEffect(() => {
-    if (chatGPTQuestion.trim().length > 0 && !isLoading) {
-      onSetChatGPTOpen(true);
+    if (
+      chatGPTQuestion.trim().length > 0 &&
+      !isLoading &&
+      textAreaRef.current
+    ) {
+      onSetIsChatGPTOpen(true);
       textAreaRef.current.value = `Explain to me this line of js:\n\n\`\`\`javascript\n${chatGPTQuestion}\n\`\`\``;
       handleSubmit();
       onSetChatGPTQuestion('');
@@ -62,7 +75,7 @@ export const ChatGPT = () => {
   }, [chatGPTQuestion]);
 
   const onClose = () => {
-    onSetChatGPTOpen(false);
+    onSetIsChatGPTOpen(false);
   };
 
   const handleSubmit = async () => {
@@ -95,6 +108,10 @@ export const ChatGPT = () => {
     setMessages((prev) => [...prev, resp?.data.choices[0].message]);
   };
 
+  const handleDeleteMessages = () => {
+    setMessages([]);
+  };
+
   return (
     <div className={`sidebar_ChatGPT_tab ${isChatGPTOpen ? '' : 'hidden'}`}>
       <header>
@@ -102,17 +119,13 @@ export const ChatGPT = () => {
           <i className="fa-solid fa-xmark"></i>
         </button>
         <h3>ChatGPT</h3>
+        <button onClick={handleDeleteMessages}>
+          <i className="fa-solid fa-trash"></i>
+        </button>
       </header>
       {chatGPTApiKey ? (
         <div className="sidebar_chatGPT_content">
           <ul className="sidebar_chatGPT_messages" ref={messagesContainerRef}>
-            <li className="sidebar_chatGPT_messages_AI">
-              <p>
-                Welcome to the AI chat room! I'm your virtual assistant, I'm
-                here to help you with whatever you need. You can ask me any
-                questions or raise any concerns you may have.
-              </p>
-            </li>
             {messages.map((message, idx) => (
               <li
                 key={idx}

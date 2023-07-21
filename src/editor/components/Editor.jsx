@@ -1,11 +1,10 @@
-import { useRef, useState, useEffect } from 'react';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
+import { useRef, useState, useEffect } from 'react';
 import { useCodeStore } from '../hooks/useCodeStore';
 import { useSettingsStore } from '../hooks/useSettingsStore';
 import { useBase64, useLocalStorage } from '../hooks';
 import { LOCALSTORAGE_ITEMS } from '../../constants/localStorageItemsConstants';
 import { setChatGPTFeatures } from '../helpers/editorSnippets';
-import 'highlight.js/styles/atom-one-dark.css';
 
 export const Editor = () => {
   const [editor, setEditor] = useState(null);
@@ -17,6 +16,7 @@ export const Editor = () => {
 
   useEffect(() => {
     if (monacoEl.current && !editor) {
+      const { chatGPTApiKey, ...editorSettings } = settings;
       setEditor(
         monaco.editor.create(monacoEl.current, {
           value: decodeBase64(
@@ -27,7 +27,7 @@ export const Editor = () => {
           padding: {
             top: 16
           },
-          ...settings
+          ...editorSettings
         })
       );
     }
@@ -36,15 +36,19 @@ export const Editor = () => {
         onSetActiveCode(editor.getValue());
       });
       setChatGPTFeatures(editor, (ed) => {
-        if (!settings.chatGPTApiKey) {
-          alert('You need to set ChatGPT API Key to use this feature');
-          return;
-        }
-
         const selectedText = ed
           .getModel()
           .getValueInRange(editor.getSelection());
+        const settings = JSON.parse(
+          localStorage.getItem(LOCALSTORAGE_ITEMS.SETTINGS)
+        );
 
+        if (!settings.chatGPTApiKey) {
+          alert(
+            'Please provide an OpenAI API key in the configuration section to use this feature.'
+          );
+          return;
+        }
         if (selectedText.trim().length <= 0) {
           alert('Please select some text to ask ChatGPT');
           return;
@@ -62,7 +66,8 @@ export const Editor = () => {
   }, [uploadedCode]);
 
   useEffect(() => {
-    editor?.updateOptions(settings);
+    const { chatGPTApiKey, ...editorSettings } = settings;
+    editor?.updateOptions(editorSettings);
   }, [settings]);
 
   return <div className="code" ref={monacoEl}></div>;

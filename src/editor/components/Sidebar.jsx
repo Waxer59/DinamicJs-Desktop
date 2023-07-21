@@ -9,8 +9,13 @@ import confetti from 'canvas-confetti';
 import { ChatGPT } from './ChatGPT';
 
 export const Sidebar = () => {
-  const { settings, onSetSettings, snippets, isChatGPTOpen, onSetChatGPTOpen } =
-    useSettingsStore();
+  const {
+    settings,
+    onSetSettings,
+    snippets,
+    isChatGPTOpen,
+    onSetIsChatGPTOpen
+  } = useSettingsStore();
   const { activeCode, codeSaved } = useCodeStore();
   const { setLocalStorageItem } = useLocalStorage();
   const { throwTextAlert, throwConfig, throwLocalSaves, throwToast } =
@@ -51,7 +56,7 @@ export const Sidebar = () => {
   };
 
   const onChatGPTClick = () => {
-    onSetChatGPTOpen(!isChatGPTOpen);
+    onSetIsChatGPTOpen(!isChatGPTOpen);
   };
 
   return (

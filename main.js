@@ -2,6 +2,8 @@ const { app, BrowserWindow, Menu } = require('electron');
 
 const path = require('node:path');
 
+// TODO: FIX MONACO EDITOR ACTION (ASK CHATGPT)
+
 const isDev = !app.isPackaged;
 
 let mainWindow;

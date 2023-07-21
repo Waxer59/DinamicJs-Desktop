@@ -292,6 +292,7 @@ br {
 .sidebar_ChatGPT_tab header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .sidebar_ChatGPT_tab header button {
