@@ -6,9 +6,6 @@ const isDev = !app.isPackaged;
 
 let mainWindow;
 
-// TODO:
-// FIX LIGHT THEME
-
 if (require('electron-squirrel-startup')) app.quit();
 
 const createWindow = () => {
