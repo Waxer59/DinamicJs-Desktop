@@ -44,7 +44,7 @@ export const Editor = () => {
           localStorage.getItem(LOCALSTORAGE_ITEMS.SETTINGS)
         );
 
-        if (!settings.chatGPTApiKey) {
+        if (!settings?.chatGPTApiKey) {
           throwToast(
             'error',
             'Please provide an OpenAI API key in the configuration section to use this feature.'
