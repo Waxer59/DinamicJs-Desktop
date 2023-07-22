@@ -2,7 +2,7 @@ import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import { useRef, useState, useEffect } from 'react';
 import { useCodeStore } from '../hooks/useCodeStore';
 import { useSettingsStore } from '../hooks/useSettingsStore';
-import { useBase64, useLocalStorage } from '../hooks';
+import { useBase64, useLocalStorage, useSweetAlert } from '../hooks';
 import { LOCALSTORAGE_ITEMS } from '../../constants/localStorageItemsConstants';
 import { setChatGPTFeatures } from '../helpers/editorSnippets';
 
@@ -12,6 +12,7 @@ export const Editor = () => {
   const { settings, onSetChatGPTQuestion } = useSettingsStore();
   const { decodeBase64 } = useBase64();
   const { getLocalStorageItem } = useLocalStorage();
+  const { throwToast } = useSweetAlert();
   const monacoEl = useRef(null);
 
   useEffect(() => {
@@ -44,13 +45,14 @@ export const Editor = () => {
         );
 
         if (!settings.chatGPTApiKey) {
-          alert(
+          throwToast(
+            'error',
             'Please provide an OpenAI API key in the configuration section to use this feature.'
           );
           return;
         }
         if (selectedText.trim().length <= 0) {
-          alert('Please select some text to ask ChatGPT');
+          throwToast('error', 'Please select some text to ask ChatGPT');
           return;
         }
         onSetChatGPTQuestion(selectedText);

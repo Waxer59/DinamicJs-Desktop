@@ -170,5 +170,5 @@ export const DEFAULT_SETTINGS = {
     enabled: false
   },
   lineNumbers: false,
-  chatGPTApiKey: null
+  chatGPTApiKey: ''
 };
