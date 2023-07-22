@@ -19,7 +19,8 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "electron-squirrel-startup": "1.0.0"
+    "electron-squirrel-startup": "1.0.0",
+    "update-electron-app": "^2.0.1"
   },
   "devDependencies": {
     "@babel/standalone": "7.20.12",
