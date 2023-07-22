@@ -8,6 +8,11 @@ let mainWindow;
 
 if (require('electron-squirrel-startup')) app.quit();
 
+require('update-electron-app')({
+  repo: 'Waxer59/DinamicJs-Desktop',
+  updateInterval: '1 hour'
+});
+
 const createWindow = () => {
   mainWindow = new BrowserWindow({
     icon: path.join(__dirname, 'images', 'favicon.ico'),
