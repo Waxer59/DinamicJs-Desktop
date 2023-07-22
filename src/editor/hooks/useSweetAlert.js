@@ -18,7 +18,7 @@ const customClass = {
 const Toast = Swal.mixin({
   toast: true,
   customClass,
-  position: 'top-end',
+  position: 'bottom-end',
   showConfirmButton: false,
   timer: 3000,
   timerProgressBar: false
@@ -144,9 +144,9 @@ export const useSweetAlert = () => {
             <input id="config__fontSize" type="number" min="1" max="100" value="${fontSize}">
           </div>
           <div class="config__item">
-            <input id="config__chatGPTApiKey" type="text" spellcheck="false" value="${
-              chatGPTApiKey ?? ''
-            }" placeholder="ChatGPT Api Key">
+            <input id="config__chatGPTApiKey" type="text" spellcheck="false" ${
+              chatGPTApiKey ? `value="${chatGPTApiKey}"` : ''
+            }placeholder="ChatGPT Api Key">
           </div>
           <div class="config__item">
             <button class="config-btn" id="config__snippets">Config snippets</button>
@@ -159,6 +159,7 @@ export const useSweetAlert = () => {
         denyButtonText: 'Reset',
         showDenyButton: true,
         didOpen: () => {
+          console.log(chatGPTApiKey);
           const snippetsBtn = document.querySelector('#config__snippets');
           snippetsBtn.addEventListener('click', async () => {
             throwSnippetsSettings(snippets);
