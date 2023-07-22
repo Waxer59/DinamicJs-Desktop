@@ -16,7 +16,8 @@
     "package": "electron-forge package",
     "lint": "eslint \"{src,test}/**/*.{js,jsx}\" --fix",
     "prepare": "husky install",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "publish": "electron-forge publish"
   },
   "dependencies": {
     "electron-squirrel-startup": "1.0.0",
