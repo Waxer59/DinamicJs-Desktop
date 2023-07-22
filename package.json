@@ -1,7 +1,7 @@
 {
   "name": "DinamicJs",
   "private": true,
-  "version": "3.1.4",
+  "version": "2.0.0",
   "main": ".vite/build/main.js",
   "description": "Your javascript playground now in desktop",
   "license": "MIT",

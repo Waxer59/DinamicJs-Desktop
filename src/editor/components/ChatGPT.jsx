@@ -13,13 +13,8 @@ const ROLES = {
 };
 
 export const ChatGPT = () => {
-  const {
-    isChatGPTOpen,
-    onSetIsChatGPTOpen,
-    settings,
-    chatGPTQuestion,
-    onSetChatGPTQuestion
-  } = useSettingsStore();
+  const { isChatGPTOpen, onSetIsChatGPTOpen, settings, chatGPTQuestion } =
+    useSettingsStore();
   const { chatGPTApiKey } = settings;
   const [messages, setMessages] = useState([
     {
@@ -70,7 +65,6 @@ export const ChatGPT = () => {
       onSetIsChatGPTOpen(true);
       textAreaRef.current.value = `Explain to me this line of js:\n\n\`\`\`javascript\n${chatGPTQuestion}\n\`\`\``;
       handleSubmit();
-      onSetChatGPTQuestion('');
     }
   }, [chatGPTQuestion]);
 

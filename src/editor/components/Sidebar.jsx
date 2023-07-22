@@ -1,9 +1,10 @@
-import { useSweetAlert } from '../hooks/useSweetAlert';
-import { useCodeStore } from '../hooks/useCodeStore';
-import { useSettingsStore } from '../hooks/useSettingsStore';
-import { useLocalStorage } from '../hooks/useLocalStorage';
-import { LOCALSTORAGE_ITEMS } from '../../constants/localStorageItemsConstants';
-import { SWAL2_ICONS } from '../../constants/sweetAlertIconsConstants';
+import {
+  useSweetAlert,
+  useCodeStore,
+  useSettingsStore,
+  useLocalStorage
+} from '../hooks';
+import { LOCALSTORAGE_ITEMS, SWAL2_ICONS } from '../../constants';
 import downloadjs from 'downloadjs';
 import confetti from 'canvas-confetti';
 import { ChatGPT } from './ChatGPT';

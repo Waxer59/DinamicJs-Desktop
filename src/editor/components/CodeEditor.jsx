@@ -2,11 +2,13 @@ import { Editor } from './Editor';
 import Split from 'react-split';
 import { CodePreviewer } from './CodePreviewer';
 import { useEffect, useRef, useState } from 'react';
-import { useCodeStore } from '../hooks/useCodeStore';
-import { useSweetAlert } from '../hooks/useSweetAlert';
-import { SWAL2_ICONS } from '../../constants/sweetAlertIconsConstants';
-import { useCodePreviewer } from '../hooks/useCodePreviewer';
-import { useSettingsStore } from '../hooks';
+import { SWAL2_ICONS } from '../../constants/';
+import {
+  useSettingsStore,
+  useCodeStore,
+  useSweetAlert,
+  useCodePreviewer
+} from '../hooks';
 
 export const CodeEditor = () => {
   const dropArea = useRef(null);
