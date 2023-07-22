@@ -63,6 +63,7 @@ export const Editor = () => {
           return;
         }
         onSetChatGPTQuestion(selectedText);
+        onSetChatGPTQuestion('');
       });
     }
     return () => editor?.dispose();
