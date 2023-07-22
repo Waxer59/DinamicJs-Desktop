@@ -1,7 +1,7 @@
 name: Build Electron App
 
 on:
-  pull_request:
+  push:
     branches:
       - 'main'
 
@@ -23,8 +23,10 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
-      - name: Make the app
-        run: yarn make
+      - name: Publish the app
+        env:
+          GITHUB_TOKEN=${{ secrets.GH_TOKEN }}
+        run: yarn publish
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
