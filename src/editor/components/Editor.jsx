@@ -7,7 +7,7 @@ import {
   useCodeStore,
   useSettingsStore
 } from '../hooks';
-import { LOCALSTORAGE_ITEMS, SWAL2_ICONS } from '../../constants/';
+import { LOCALSTORAGE_ITEMS, SWAL2_ICONS } from '../../constants';
 import { setChatGPTFeatures } from '../helpers/editorSnippets';
 
 export const Editor = () => {
