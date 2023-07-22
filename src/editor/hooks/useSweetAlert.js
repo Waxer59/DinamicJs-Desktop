@@ -1,10 +1,10 @@
 import Swal from 'sweetalert2';
 import {
   DEFAULT_SETTINGS,
-  DEFAULT_SNIPPETS
+  DEFAULT_SNIPPETS,
+  SWAL2_ICONS,
+  LOCALSTORAGE_ITEMS
 } from '../../constants/editorSettingsConstants';
-import { LOCALSTORAGE_ITEMS } from '../../constants/localStorageItemsConstants';
-import { SWAL2_ICONS } from '../../constants/sweetAlertIconsConstants';
 import { useCodeStore } from './useCodeStore';
 import { useLocalStorage } from './useLocalStorage';
 import { useBase64 } from './useBase64';
