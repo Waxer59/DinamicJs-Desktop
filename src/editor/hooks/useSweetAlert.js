@@ -157,7 +157,6 @@ export const useSweetAlert = () => {
         denyButtonText: 'Reset',
         showDenyButton: true,
         didOpen: () => {
-          console.log(chatGPTApiKey);
           const snippetsBtn = document.querySelector('#config__snippets');
           snippetsBtn.addEventListener('click', async () => {
             throwSnippetsSettings(snippets);

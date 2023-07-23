@@ -159,8 +159,6 @@ html.light:root {
   border-radius: 5px;
 }
 
-input[type='password']::placeholder,
-input[type='text']::placeholder,
 .sidebar_chatGPT_search textarea::placeholder {
   color: black;
   display: flex;
