@@ -1,7 +1,7 @@
 {
   "name": "DinamicJs",
   "private": true,
-  "version": "3.1.6",
+  "version": "3.1.7",
   "main": ".vite/build/main.js",
   "description": "Your javascript playground now in desktop",
   "license": "MIT",
@@ -39,7 +39,7 @@
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",
     "@vitejs/plugin-react": "3.0.1",
-    "babel-plugin-auto-console-log": "1.1.14",
+    "babel-plugin-auto-console-log": "1.1.15",
     "canvas-confetti": "1.6.0",
     "downloadjs": "1.4.7",
     "electron": "22.0.0",
