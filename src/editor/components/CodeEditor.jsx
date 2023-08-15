@@ -50,6 +50,10 @@ export const CodeEditor = () => {
       },
       false
     );
+
+    return () => {
+      dropArea.current?.removeEventListener('drop', () => {});
+    };
   }, []);
 
   useEffect(() => {
