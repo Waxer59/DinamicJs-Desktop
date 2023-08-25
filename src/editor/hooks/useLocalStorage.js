@@ -1,5 +1,7 @@
+import { useCallback } from 'react';
+
 export const useLocalStorage = () => {
-  const getLocalStorageItem = (key) => {
+  const getLocalStorageItem = useCallback((key) => {
     try {
       const value = localStorage.getItem(key);
       const parsedValue = JSON.parse(value);
@@ -7,16 +9,16 @@ export const useLocalStorage = () => {
     } catch (error) {
       return null;
     }
-  };
-  const setLocalStorageItem = (key, value) => {
+  }, []);
+  const setLocalStorageItem = useCallback((key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
-  };
-  const removeLocalStorageItem = (key) => {
+  }, []);
+  const removeLocalStorageItem = useCallback((key) => {
     localStorage.removeItem(key);
-  };
-  const clearLocalStorage = () => {
+  }, []);
+  const clearLocalStorage = useCallback(() => {
     localStorage.clear();
-  };
+  }, []);
   return {
     getLocalStorageItem,
     setLocalStorageItem,
