@@ -399,7 +399,7 @@
   dependencies:
     "@electron-forge/shared-types" "6.2.1"
 
-"@electron-forge/publisher-github@^6.2.1":
+"@electron-forge/publisher-github@6.2.1":
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/@electron-forge/publisher-github/-/publisher-github-6.2.1.tgz#2930329cec7bdb46c50bc2fdc6cb2d999c97ecb0"
   integrity sha512-EqSZfELavDkshjtYYM9U7oWBtGB7Dj9bWEHzCkJKwemCr1IiWKtB8FKcVildPwu4UnOad21k+nGHRdxyniky+w==
@@ -1433,10 +1433,10 @@ axios@^0.26.0:
   dependencies:
     follow-redirects "^1.14.8"
 
-babel-plugin-auto-console-log@1.1.13:
-  version "1.1.13"
-  resolved "https://registry.yarnpkg.com/babel-plugin-auto-console-log/-/babel-plugin-auto-console-log-1.1.13.tgz#84e0968e55ed244cf2d713de308dbea7b5b43fc3"
-  integrity sha512-UWhwhPuZpGLi7ndbVpNMd6bHj6RK7hh1DZNKGVN3wMsugaLyCWPbtF+2N3+Ky1yv7H2zq0NWJVuZ98+j/w7Wmg==
+babel-plugin-auto-console-log@1.1.18:
+  version "1.1.18"
+  resolved "https://registry.yarnpkg.com/babel-plugin-auto-console-log/-/babel-plugin-auto-console-log-1.1.18.tgz#328cafa4b5f00f9dc9d4c1712c57e77b62bb3f5d"
+  integrity sha512-UDdgIpIjwoErmMZ5N3mZebVsc6nukSe6KHd+IrZZf6tETrEOZVqZuCyWYFMMP72sk727nEnkG7uk5q3HT0j+Fw==
 
 balanced-match@^1.0.0:
   version "1.0.2"
@@ -5639,7 +5639,7 @@ update-browserslist-db@^1.0.11:
     escalade "^3.1.1"
     picocolors "^1.0.0"
 
-update-electron-app@^2.0.1:
+update-electron-app@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/update-electron-app/-/update-electron-app-2.0.1.tgz#229dbeb4534f51ec949e6a46ae1ac32f68a17eed"
   integrity sha512-e4xEner89UZZaBGYJbYlMdL1uUrC0VjOsTAL2N4opPjzFtn+j7mdsJJsnyXZzUVeLY+8tuCX4XEsUM98oBHmZg==
