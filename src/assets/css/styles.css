@@ -4,7 +4,7 @@
   --tertiary-color: #ececec;
 }
 
-html.light:root {
+.light:root {
   --primary-color: #ffffff;
   --secondary-color: #ebebeb;
   --tertiary-color: #2c2c2c;
