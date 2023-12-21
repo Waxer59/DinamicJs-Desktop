@@ -26,26 +26,26 @@ module.exports = {
     {
       name: '@electron-forge/maker-deb',
       config: {
-        icon: '.vite/build/images/android-chrome-512x512.png'
+        icon: '.vite/build/images/icon.png'
       }
     },
     {
       name: '@electron-forge/maker-rpm',
       config: {
-        icon: '.vite/build/images/android-chrome-512x512.png'
+        icon: '.vite/build/images/icon.png'
       }
     },
     {
       name: '@electron-forge/maker-zip',
       config: {
-        icon: '.vite/build/images/android-chrome-512x512.png'
+        icon: '.vite/build/images/icon.png'
       },
       platforms: ['darwin']
     },
     {
       name: '@electron-forge/maker-dmg',
       config: {
-        background: '.vite/build/images/android-chrome-512x512.png',
+        background: '.vite/build/images/icon.png',
         format: 'ULFO'
       }
     }
