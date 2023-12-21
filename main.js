@@ -1,4 +1,5 @@
 const { app, BrowserWindow, Menu } = require('electron');
+const { updateElectronApp } = require('update-electron-app');
 
 const path = require('node:path');
 
@@ -8,8 +9,7 @@ let mainWindow;
 
 if (require('electron-squirrel-startup')) app.quit();
 
-require('update-electron-app')({
-  repo: 'Waxer59/DinamicJs-Desktop',
+updateElectronApp({
   updateInterval: '1 hour'
 });
 
