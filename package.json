@@ -6,7 +6,7 @@
   "description": "Your javascript playground now in desktop",
   "license": "MIT",
   "author": "Waxer59",
-  "icon": "./.vite/build/images/favicon.ico",
+  "icon": ".vite/build/images/favicon.ico",
   "scripts": {
     "vite:dev": "vite dev",
     "start": "yarn build && yarn dev",
@@ -42,7 +42,7 @@
     "babel-plugin-auto-console-log": "1.1.18",
     "canvas-confetti": "1.6.0",
     "downloadjs": "1.4.7",
-    "electron": "22.0.0",
+    "electron": "28.0.0",
     "eslint": "8.0.1",
     "eslint-config-prettier": "8.7.0",
     "eslint-config-standard": "17.0.0",
@@ -65,8 +65,7 @@
     "react-spinners": "0.13.8",
     "react-split": "2.0.14",
     "snarkdown": "2.0.0",
-    "sweetalert2": "11.6.16",
-    "vite": "4.2.0"
+    "sweetalert2": "11.6.16"
   },
   "lint-staged": {
     "*.{js,jsx}": "eslint --fix",

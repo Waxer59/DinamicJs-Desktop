@@ -1,6 +1,6 @@
 module.exports = {
   packagerConfig: {
-    icon: './.vite/build/images/favicon.ico',
+    icon: '.vite/build/images/favicon.ico',
     ignore: [
       '^/public$',
       '^/src$',
@@ -20,32 +20,32 @@ module.exports = {
         name: 'DinamicJs',
         iconUrl:
           'https://raw.githubusercontent.com/Waxer59/DinamicJs-Desktop/main/public/images/favicon.ico',
-        setupIcon: './.vite/build/images/favicon.ico'
+        setupIcon: '.vite/build/images/favicon.ico'
       }
     },
     {
       name: '@electron-forge/maker-deb',
       config: {
-        icon: './.vite/build/images/android-chrome-512x512.png'
+        icon: '.vite/build/images/android-chrome-512x512.png'
       }
     },
     {
       name: '@electron-forge/maker-rpm',
       config: {
-        icon: './.vite/build/images/android-chrome-512x512.png'
+        icon: '.vite/build/images/android-chrome-512x512.png'
       }
     },
     {
       name: '@electron-forge/maker-zip',
       config: {
-        icon: './.vite/build/images/android-chrome-512x512.png'
+        icon: '.vite/build/images/android-chrome-512x512.png'
       },
       platforms: ['darwin']
     },
     {
       name: '@electron-forge/maker-dmg',
       config: {
-        background: './.vite/build/images/android-chrome-512x512.png',
+        background: '.vite/build/images/android-chrome-512x512.png',
         format: 'ULFO'
       }
     }
