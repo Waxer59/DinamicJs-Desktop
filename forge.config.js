@@ -1,15 +1,16 @@
 module.exports = {
   packagerConfig: {
-    icon: '.vite/build/images/favicon.ico',
+    icon: '.vite/renderer/main_window/images/favicon.ico',
     ignore: [
       '^/public$',
       '^/src$',
+      '^/dist$',
       '[.](github|husky|template.env|env|eslintrc.json|prettierignore|prettierrc|gitignore)$',
       'LICENSE.md',
       'README.md',
-      'vite.config.js',
       'forge.config.js',
-      'dist'
+      'vite.main.config.js',
+      'vite.renderer.config.js'
     ],
     asar: true
   },
@@ -21,32 +22,32 @@ module.exports = {
         name: 'DinamicJs',
         iconUrl:
           'https://raw.githubusercontent.com/Waxer59/DinamicJs-Desktop/main/public/images/favicon.ico',
-        setupIcon: '.vite/build/images/favicon.ico'
+        setupIcon: '.vite/renderer/main_window/images/favicon.ico'
       }
     },
     {
       name: '@electron-forge/maker-deb',
       config: {
-        icon: '.vite/build/images/icon.png'
+        icon: '.vite/renderer/main_window/images/icon.png'
       }
     },
     {
       name: '@electron-forge/maker-rpm',
       config: {
-        icon: '.vite/build/images/icon.png'
+        icon: '.vite/renderer/main_window/images/icon.png'
       }
     },
     {
       name: '@electron-forge/maker-zip',
       config: {
-        icon: '.vite/build/images/icon.png'
+        icon: '.vite/renderer/main_window/images/icon.png'
       },
       platforms: ['darwin']
     },
     {
       name: '@electron-forge/maker-dmg',
       config: {
-        background: '.vite/build/images/icon.png',
+        background: '.vite/renderer/main_window/images/icon.png',
         format: 'ULFO'
       }
     }

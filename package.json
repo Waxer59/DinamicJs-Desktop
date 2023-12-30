@@ -6,11 +6,8 @@
   "description": "Your javascript playground now in desktop",
   "license": "MIT",
   "author": "Waxer59",
-  "icon": ".vite/build/images/favicon.ico",
+  "icon": ".vite/renderer/main_window/images/favicon.ico",
   "scripts": {
-    "vite:dev": "vite dev",
-    "start": "yarn build && yarn dev",
-    "build": "vite build",
     "dev": "electron-forge start",
     "make": "electron-forge make",
     "package": "electron-forge package",
@@ -21,7 +18,7 @@
   },
   "dependencies": {
     "electron-squirrel-startup": "1.0.0",
-    "update-electron-app": "3.0.0"
+    "update-electron-app": "^3.0.0"
   },
   "devDependencies": {
     "@babel/standalone": "7.20.12",

@@ -11,13 +11,13 @@
 }
 @font-face {
   font-family: 'JetBrains Mono';
-  src: url(/fonts/JetBrainsMono[wght].ttf);
+  src: url(./fonts/JetBrainsMono[wght].ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'JetBrains Mono';
-  src: url(/fonts/JetBrainsMono-Italic[wght].ttf);
+  src: url(./fonts/JetBrainsMono-Italic[wght].ttf);
   font-weight: normal;
   font-style: italic;
 }

@@ -5549,7 +5549,7 @@ update-browserslist-db@^1.0.13:
     escalade "^3.1.1"
     picocolors "^1.0.0"
 
-update-electron-app@3.0.0:
+update-electron-app@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/update-electron-app/-/update-electron-app-3.0.0.tgz#d705889e5bd86939f22e144c0c8b5f919a90f954"
   integrity sha512-Ccs46fgUEcMpSRPMNw82DFMux2MGi5tkKkEpV723JmtPNI3qAtxvTeiYkKczN2/LehA3U7JGrGr4MhraxGdRTw==
