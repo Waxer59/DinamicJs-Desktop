@@ -21,7 +21,7 @@ jobs:
           yarn-version: '1.x'
 
       - name: Install Dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Publish the app
         run: yarn publish:app
