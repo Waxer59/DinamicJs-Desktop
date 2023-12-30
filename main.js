@@ -3,8 +3,6 @@ const { updateElectronApp } = require('update-electron-app');
 
 const path = require('node:path');
 
-const isDev = !app.isPackaged;
-
 let mainWindow;
 
 if (require('electron-squirrel-startup')) app.quit();
@@ -14,24 +12,47 @@ updateElectronApp({
 });
 
 const createWindow = () => {
+  const menu = Menu.buildFromTemplate([]);
+  Menu.setApplicationMenu(menu);
+
+  /*
+  'MAIN_WINDOW_VITE_DEV_SERVER_URL' and 'MAIN_WINDOW_VITE_NAME' are global variables
+  Please see: https://www.electronforge.io/config/plugins/vite
+  */
+
+  /* eslint-disable no-undef */
+
   mainWindow = new BrowserWindow({
-    icon: path.join(__dirname, 'images', 'favicon.ico'),
+    icon: path.join(
+      __dirname,
+      '..',
+      'renderer',
+      MAIN_WINDOW_VITE_NAME,
+      'images',
+      'favicon.ico'
+    ),
     minWidth: 500,
     minHeight: 270,
     width: 800,
     height: 600
   });
-  const menu = Menu.buildFromTemplate([]);
-  Menu.setApplicationMenu(menu);
+
   mainWindow.loadURL(
-    isDev
-      ? 'http://localhost:5173'
-      : `file://${path.join(__dirname, '../renderer/main_window/index.html')}`
+    MAIN_WINDOW_VITE_DEV_SERVER_URL ??
+      `file://${path.join(
+        __dirname,
+        '..',
+        'renderer',
+        MAIN_WINDOW_VITE_NAME,
+        'index.html'
+      )}`
   );
+
   //!  Open dev tools
-  if (isDev) {
+  if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
     mainWindow.webContents.openDevTools({ mode: 'detach' });
   }
+  /* eslint-enable no-undef */
 };
 
 app.on('activate', function () {
